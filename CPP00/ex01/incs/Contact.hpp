@@ -11,20 +11,23 @@ class Contact {
 public:
 	Contact();
 	~Contact();
-	std::string	SetFirstName();
-	std::string	SetLastName();
-	std::string	SetNickname();
-	std::string	SetPhoneNum();
-	std::string	SetDarkSecret();
+	void		SetFirstName();
+	void		SetLastName();
+	void		SetNickname();
+	void		SetPhoneNum();
+	void		SetDarkSecret();
+	std::string	GetFirstName();
+	std::string	GetLastName();
+	std::string	GetNickname();
+	int			GetPhoneNum();
+	std::string	GetDarkSecret();
 
 private:
 	std::string	firstName;
 	std::string	lastName;
 	std::string	nickname;
-	std::string	phoneNumber;
+	int			phoneNumber;
 	std::string	darkestSecret;
-	std::string	test;
-
 };
 
 #endif /* CONTACT_HPP */

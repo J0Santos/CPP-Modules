@@ -134,7 +134,7 @@ MSAN := -fsanitize=memory -fsanitize-memory-track-origins
 # Root Folders
 ################################################################################
 
-BIN_ROOT := bins/
+BIN_ROOT := ./
 DEP_ROOT := deps/
 INC_ROOT := incs/
 LIB_ROOT := libs/

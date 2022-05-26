@@ -2,14 +2,19 @@
 
 Phonebook::Phonebook(void) {
 
-	std::cout << "Contructor called" << std::endl;
+	std::cout << "Phonebook constructor called" << std::endl;
 	this->index = 0;
 	
 	return ;
 }
 
+int	Phonebook::getIndex(void) {
+	
+	return index;
+}
+
 Phonebook::~Phonebook(void) {
 
-	std::cout << "Destructor called" << std::endl;
+	std::cout << "Phonebook destructor called" << std::endl;
 	return ;
 }

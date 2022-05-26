@@ -38,7 +38,7 @@
 ################################################################################
 
 # Name of a single binary. Add as many variables as required by the project
-NAME1 := Megaphone
+NAME1 := Phonebook
 
 # The names of all the binaries. Add aditional variables created above separated
 # by space.
@@ -134,7 +134,7 @@ MSAN := -fsanitize=memory -fsanitize-memory-track-origins
 # Root Folders
 ################################################################################
 
-BIN_ROOT := bins/
+BIN_ROOT := ./
 DEP_ROOT := deps/
 INC_ROOT := incs/
 LIB_ROOT := libs/
