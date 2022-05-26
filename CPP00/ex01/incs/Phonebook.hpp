@@ -13,7 +13,7 @@ public:
 
 	Phonebook();
 	~Phonebook();
-	int	getIndex();
+	Contact	AddContact();
 
 private:
 	Contact	Contact[MAX_SIZE];

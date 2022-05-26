@@ -8,13 +8,13 @@ Phonebook::Phonebook(void) {
 	return ;
 }
 
-int	Phonebook::getIndex(void) {
-	
-	return index;
-}
-
 Phonebook::~Phonebook(void) {
 
 	std::cout << "Phonebook destructor called" << std::endl;
 	return ;
+}
+
+Contact Phonebook::AddContact(void)
+{
+	
 }
