@@ -2,6 +2,7 @@
 # define PHONEBOOK_HPP
 
 # include "Contact.hpp"
+# include "Colors.hpp"
 
 # define PRINT(x) std::cout << x << std::endl
 # define MAX_SIZE 8
