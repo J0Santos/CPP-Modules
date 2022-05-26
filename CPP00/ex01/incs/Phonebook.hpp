@@ -13,11 +13,15 @@ public:
 
 	Phonebook();
 	~Phonebook();
-	Contact	AddContact();
+	void	addContact();
+	Contact	*getContact();
+	int		getIndex();
+	void	displayContact();
 
 private:
-	Contact	Contact[MAX_SIZE];
+	Contact	*contactList[MAX_SIZE];
 	int			index;
+	void	setIndex(int i);
 };
 
 #endif /* PHONEBOOK_HPP */

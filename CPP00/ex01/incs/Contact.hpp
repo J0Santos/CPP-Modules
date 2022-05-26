@@ -11,16 +11,16 @@ class Contact {
 public:
 	Contact();
 	~Contact();
-	void		SetFirstName();
-	void		SetLastName();
-	void		SetNickname();
-	void		SetPhoneNum();
-	void		SetDarkSecret();
-	std::string	GetFirstName();
-	std::string	GetLastName();
-	std::string	GetNickname();
-	int			GetPhoneNum();
-	std::string	GetDarkSecret();
+	void		setFirstName();
+	void		setLastName();
+	void		setNickname();
+	void		setPhoneNum();
+	void		setDarkSecret();
+	std::string	getFirstName();
+	std::string	getLastName();
+	std::string	getNickname();
+	int			getPhoneNum();
+	std::string	getDarkSecret();
 
 private:
 	std::string	firstName;
