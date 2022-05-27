@@ -16,7 +16,7 @@ void	Contact::setFirstName(void)
 	std::string	str;
 
 	PRINT(YELLOW << "Insert First Name:" << RESET);
-	std::cin >> this->firstName;
+	std::getline(std::cin, this->firstName);
 }
 
 std::string	Contact::getFirstName(void)
@@ -28,7 +28,7 @@ std::string	Contact::getFirstName(void)
 void	Contact::setLastName(void)
 {
 	PRINT(YELLOW << "Insert Last Name:" << RESET);
-	std::cin >> this->lastName;
+	std::getline(std::cin, this->lastName);
 }
 
 std::string	Contact::getLastName(void)
@@ -40,7 +40,7 @@ std::string	Contact::getLastName(void)
 void	Contact::setNickname(void)
 {
 	PRINT(YELLOW << "Insert Nickname:" << RESET);
-	std::cin >> this->nickname;
+	std::getline(std::cin, this->nickname);
 }
 
 std::string	Contact::getNickname(void)
@@ -52,13 +52,13 @@ std::string	Contact::getNickname(void)
 void	Contact::setPhoneNum(void)
 {
 	PRINT(YELLOW << "Insert Phone Number:" << RESET);
-	std::cin >> this->phoneNumber;
+	std::getline(std::cin, this->phoneNumber);
 	while (!this->phoneNumber)
 	{
 		std::cin.clear();
 		std::cin.ignore(999, '\n');
 		PRINT(RED << "Phone Number must be a number.\nInsert it again:" << RESET);
-		std::cin >> this->phoneNumber;
+		std::getline(cin, this->phoneNumber);
 	}
 }
 
@@ -71,7 +71,7 @@ int	Contact::getPhoneNum(void)
 void	Contact::setDarkSecret(void)
 {
 	PRINT(YELLOW << "Insert Dark Secret:" << RESET);
-	std::cin >> this->darkestSecret;
+	std::getline(std::cin, this->darkestSecret);
 }
 
 std::string	Contact::getDarkSecret(void)

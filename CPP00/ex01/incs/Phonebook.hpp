@@ -14,13 +14,13 @@ public:
 	Phonebook();
 	~Phonebook();
 	void	addContact();
-	Contact	*getContact();
+	Contact	getContact();
 	int		getIndex();
 	void	displayContact();
 
 private:
-	Contact	*contactList[MAX_SIZE];
-	int			index;
+	Contact	contactList[MAX_SIZE];
+	int		index;
 	void	setIndex(int i);
 };
 
