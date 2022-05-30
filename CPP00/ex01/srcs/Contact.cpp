@@ -52,13 +52,13 @@ std::string	Contact::getNickname(void)
 void	Contact::setPhoneNum(void)
 {
 	PRINT(YELLOW << "Insert Phone Number:" << RESET);
-	std::getline(std::cin, this->phoneNumber);
-	while (!this->phoneNumber)
+	std::cin >> this->phoneNumber;
+	if (!this->phoneNumber)
 	{
 		std::cin.clear();
 		std::cin.ignore(999, '\n');
-		PRINT(RED << "Phone Number must be a number.\nInsert it again:" << RESET);
-		std::getline(cin, this->phoneNumber);
+		PRINT(RED << "Phone Number must be a number.\n" << RESET);
+		this->setPhoneNum();
 	}
 }
 
@@ -71,6 +71,8 @@ int	Contact::getPhoneNum(void)
 void	Contact::setDarkSecret(void)
 {
 	PRINT(YELLOW << "Insert Dark Secret:" << RESET);
+	std::cin.clear();
+	std::cin.ignore(999, '\n');
 	std::getline(std::cin, this->darkestSecret);
 }
 

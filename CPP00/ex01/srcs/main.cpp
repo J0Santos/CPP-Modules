@@ -8,7 +8,7 @@ int	main(void) {
 	while (1)
 	{
 		PRINT(BLUE << "Insert command:\n\n(ADD) a contact;\n(SEARCH) a contact;\n(EXIT) the program" << RESET);
-		std::cin >> command;
+		std::getline(std::cin, command);
 		if (!command.compare("ADD"))
 			Phonebook.addContact();
 		else if (!command.compare("SEARCH"))
