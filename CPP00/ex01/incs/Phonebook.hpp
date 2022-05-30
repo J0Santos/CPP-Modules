@@ -17,10 +17,12 @@ public:
 	Contact	getContact();
 	int		getIndex();
 	void	displayContact();
+	void	displayContactInfo(int value);
 
 private:
 	Contact	contactList[MAX_SIZE];
 	int		index;
+	int		numContacts;
 	void	setIndex(int i);
 };
 

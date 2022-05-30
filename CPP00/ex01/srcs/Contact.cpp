@@ -13,8 +13,6 @@ Contact::~Contact(void)
 /* First Name */
 void	Contact::setFirstName(void)
 {
-	std::string	str;
-
 	PRINT(YELLOW << "Insert First Name:" << RESET);
 	std::getline(std::cin, this->firstName);
 }
@@ -57,7 +55,7 @@ void	Contact::setPhoneNum(void)
 	{
 		std::cin.clear();
 		std::cin.ignore(999, '\n');
-		PRINT(RED << "Phone Number must be a number.\n" << RESET);
+		PRINT(RED << "Phone Number must be a positive number, duh.\n" << RESET);
 		this->setPhoneNum();
 	}
 }

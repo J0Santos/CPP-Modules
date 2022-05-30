@@ -23,11 +23,11 @@ public:
 	std::string	getDarkSecret();
 
 private:
-	std::string	firstName;
-	std::string	lastName;
-	std::string	nickname;
-	int			phoneNumber;
-	std::string	darkestSecret;
+	std::string		firstName;
+	std::string		lastName;
+	std::string		nickname;
+	unsigned int	phoneNumber;
+	std::string		darkestSecret;
 };
 
 #endif /* CONTACT_HPP */
