@@ -26,7 +26,7 @@ private:
 	std::string		firstName;
 	std::string		lastName;
 	std::string		nickname;
-	unsigned int	phoneNumber;
+	int				phoneNumber;
 	std::string		darkestSecret;
 };
 

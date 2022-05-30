@@ -17,10 +17,8 @@ int	main(void) {
 			Phonebook.displayContact();
 			PRINT(BLUE << "Insert user index for more information" << RESET);
 			std::cin >> i;
-			while (!i)
+			while (std::cin.fail())
 			{
-				std::cin.clear();
-				std::cin.ignore(999, '\n');
 				PRINT(RED << "Index must be a number, like, do I have to teach you everything?\n" << RESET);
 				std::cin.clear();
 				std::cin.ignore(999, '\n');
@@ -30,11 +28,11 @@ int	main(void) {
 		}
 		else if (!command.compare("EXIT"))
 		{
-			PRINT(MAGENTA << "Pfff... okay then...BYE!!" << RESET);
+			PRINT(RED << "Pfff... okay then...BYE!!" << RESET);
 			return (0);
 		}
 		else
-			PRINT(RED << "LOL, Invalid command: " << command << "\n\nValid commands are:\n\t-> ADD\n\t-> SEARCH\n\t-> EXIT\n\n" << RESET);
+			PRINT(RED << "LOL, invalid command: " << command << "\n\nValid commands are:\n\t-> ADD\n\t-> SEARCH\n\t-> EXIT\n\n" << RESET);
 	}
 
 	// PRINT(Phonebook.getIndex());

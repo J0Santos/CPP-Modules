@@ -2,7 +2,7 @@
 
 Phonebook::Phonebook(void) {
 
-	std::cout << "Phonebook constructor called" << std::endl;
+	//std::cout << "Phonebook constructor called" << std::endl;
 	index = 0;
 	numContacts = 0;
 	return ;
@@ -10,7 +10,7 @@ Phonebook::Phonebook(void) {
 
 Phonebook::~Phonebook(void) {
 
-	std::cout << "Phonebook destructor called" << std::endl;
+	//std::cout << "Phonebook destructor called" << std::endl;
 	return ;
 }
 
@@ -43,6 +43,11 @@ void	Phonebook::displayContact()
 	int i = 0;
 	std::string temp;
 
+	if (numContacts == 0)
+	{
+		PRINT(RED << "No contacts have been added, what exactly are you looking for...?" << RESET);
+		return ;
+	}
 	std::cout.width(10);
 	std::cout << std::right << "index" << "|";
 	std::cout.width(10);
@@ -86,11 +91,11 @@ void	Phonebook::displayContact()
 void	Phonebook::displayContactInfo(int value)
 {
 	if (value > 7)
-		PRINT(BLUE << "The Phonebook doesn't have more than 8 contacts..." << RESET);
+		PRINT(RED << "The Phonebook can only have 8 contacts...which is more than enough, in case you want to add all your friends\n" << RESET);
 	else if (value < 0)
-		PRINT(BLUE << "Wow, soooo funny, ahah, negative indexes...grow up" << RESET);
+		PRINT(RED << "Wow, soooo funny, ahah, negative indexes...grow up\n" << RESET);
 	else if (value >= numContacts)
-		PRINT(BLUE << "You have only added " << numContacts << " contacts...can't you count?" << RESET);
+		PRINT(RED << "You have only added " << numContacts << " contacts...can't you count?\n" << RESET);
 	else
 	{
 		PRINT(contactList[value].getFirstName());
