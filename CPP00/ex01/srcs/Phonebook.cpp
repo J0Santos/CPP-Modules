@@ -107,4 +107,3 @@ void	Phonebook::displayContactInfo(int value)
 	std::cin.clear();
 	std::cin.ignore(999, '\n');
 }
-
