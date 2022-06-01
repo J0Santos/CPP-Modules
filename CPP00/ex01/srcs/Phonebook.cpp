@@ -56,7 +56,7 @@ void	Phonebook::displayContact()
 	std::cout << std::right << "Last Name" << "|";
 	std::cout.width(10);
 	std::cout << std::right << "Nickname" << std::endl;
-	while (i < this->index)
+	while (i < numContacts)
 	{
 		std::cout.width(10);
 		std::cout << std::right << i << "|";

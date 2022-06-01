@@ -14,18 +14,18 @@ Contact::~Contact(void)
 void	Contact::setFirstName(void)
 {
 	PRINT(YELLOW << "Insert First Name:" << RESET);
-	std::getline(std::cin, this->firstName);
+	std::getline(std::cin, firstName);
 	while (firstName.empty())
 	{
 		PRINT(RED << "Obviously, this can't be empty...do you eat soup with a fork?") << RESET;
 		PRINT(YELLOW << "Insert First Name:" << RESET);
-		std::getline(std::cin, this->firstName);
+		std::getline(std::cin, firstName);
 	}
 }
 
 std::string	Contact::getFirstName(void)
 {
-	return (Contact::firstName);
+	return (firstName);
 }
 
 /* Last Name */
@@ -43,7 +43,7 @@ void	Contact::setLastName(void)
 
 std::string	Contact::getLastName(void)
 {
-	return (Contact::lastName);
+	return (lastName);
 }
 
 /* Nickname */
@@ -61,58 +61,25 @@ void	Contact::setNickname(void)
 
 std::string	Contact::getNickname(void)
 {
-	return (Contact::nickname);
+	return (nickname);
 }
 
 /* Phone Number */
 void	Contact::setPhoneNum(void)
 {
-	size_t 		i;
-	bool		num;
-	bool		valid = false;
-	std::string temp;
-
-	while (valid == false)
+	PRINT(YELLOW << "Insert Phone Number:" << RESET);
+	std::getline(std::cin, phoneNumber);
+	while (phoneNumber.empty())
 	{
+		PRINT(RED << "Obviously, this can't be empty...do you eat soup with a fork?") << RESET;
 		PRINT(YELLOW << "Insert Phone Number:" << RESET);
-		std::getline(std::cin, temp);
-		if (temp.empty())
-		{
-			PRINT(RED << "Just give me a number...I'm tired\n" << RESET);
-			continue ;
-		}
-		if (temp[0] == '-')
-		{
-			PRINT(RED << "You are the reason I had warnings implemented...Phone Numbers must be positive...\n" << RESET);
-			continue ;
-		}
-		num = false;
-		while (num == false)
-		{
-			for (i = 0; i < temp.length(); i++)
-			{
-				if (std::isdigit(temp[i]))
-				{
-					num = true;
-					i++;
-				}
-				else
-					num = false;
-					break ;
-			}
-			PRINT(RED << "It must be a number...like...its literally in the name \"phone NUMBER\"\n" << RESET);
-			break ;
-		}
-		if (num == false)
-			continue ;
-		phoneNumber = std::stoi(temp);
-		valid = true;
+		std::getline(std::cin, phoneNumber);
 	}
 }
 
-int	Contact::getPhoneNum(void)
+std::string	Contact::getPhoneNum(void)
 {
-	return (Contact::phoneNumber);
+	return (phoneNumber);
 }
 
 /* Dark Secret */
@@ -130,5 +97,5 @@ void	Contact::setDarkSecret(void)
 
 std::string	Contact::getDarkSecret(void)
 {
-	return (Contact::darkestSecret);
+	return (darkestSecret);
 }

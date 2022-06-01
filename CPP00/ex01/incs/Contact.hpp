@@ -19,14 +19,14 @@ public:
 	std::string	getFirstName();
 	std::string	getLastName();
 	std::string	getNickname();
-	int			getPhoneNum();
+	std::string	getPhoneNum();
 	std::string	getDarkSecret();
 
 private:
 	std::string		firstName;
 	std::string		lastName;
 	std::string		nickname;
-	int				phoneNumber;
+	std::string		phoneNumber;
 	std::string		darkestSecret;
 };
 
