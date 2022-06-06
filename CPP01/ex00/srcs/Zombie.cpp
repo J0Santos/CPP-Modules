@@ -1,21 +1,17 @@
 #include "Zombie.hpp"
 
-Zombie::Zombie ( std::string name )
+Zombie::Zombie( std::string name )
 {
 	this->name = name;
+	PRINT("Zombie " << this->name << " appeared!");
 }
 
 Zombie::~Zombie( void )
 {
-	"Destructor called";
+	PRINT("Zombie " << this->name << " was killed!");
 }
 
 void	Zombie::announce( void )
 {
-	PRINT(name << ": " << " BraiiiiiiinnnzzzZ...");
-}
-
-void	setZombieName()
-{
-
+	PRINT(this->name << ": " << " BraiiiiiiinnnzzzZ...");
 }

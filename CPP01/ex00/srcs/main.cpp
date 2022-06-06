@@ -2,8 +2,10 @@
 
 int	main( void )
 {
-	Zombie	*z;
+	Zombie	*heap;
 
-	z = newZombie( "josantos" );
-
+	randomChump( "Chump" );
+	heap = newZombie( "josantos" );
+	heap->announce();
+	delete heap;
 }
