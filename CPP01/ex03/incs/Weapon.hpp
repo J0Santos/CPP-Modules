@@ -1,8 +1,10 @@
 #ifndef WEAPON_HPP
 # define WEAPON_HPP
 
+# include <iostream>
+
 # ifndef LOG
-#  define LOG(x) std::cout << x << std::endl;
+#  define LOG(x) std::cout << x << std::endl
 # endif /* LOG */
 
 class Weapon {
@@ -14,9 +16,9 @@ public:
 	Weapon();
 	Weapon(std::string type);
 	~Weapon();
-	std::string const	&getType();
-	void	setType(std::string type);
+	const std::string&	getType();
+	void	setType(std::string newType);
 
-}
+};
 
 #endif /* WEAPON_HPP */
