@@ -69,6 +69,8 @@ void	Contact::setPhoneNum(void)
 {
 	PRINT(YELLOW << "Insert Phone Number:" << RESET);
 	std::getline(std::cin, phoneNumber);
+	if (phoneNumber[0] == '-')
+		PRINT(RED << "Tell me a country with negative phone numbers, just one...wise-ass...I dont even care anymore, saved!" << RESET);
 	while (phoneNumber.empty())
 	{
 		PRINT(RED << "Obviously, this can't be empty...do you eat soup with a fork?") << RESET;
