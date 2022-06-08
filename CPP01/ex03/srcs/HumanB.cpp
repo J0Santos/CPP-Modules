@@ -1,13 +1,14 @@
 #include "HumanB.hpp"
 
-HumanB::HumanB(std::string name, Weapon weapon): name(name), weaponType(weapon)
+HumanB::HumanB(std::string name, Weapon *weapon): name(name), weaponType(weapon)
 {
-	LOG("HumanB named " << name << "was born with a " << weaponType.getType());
+	LOG("HumanB named " << name << "was born with a " << weaponType->getType());
 }
 
 
 HumanB::HumanB(std::string name): name(name)
 {
+
 	LOG("HumanB named " << name << " was born without a weapon");
 }
 
@@ -19,12 +20,12 @@ HumanB::~HumanB(void)
 
 void	HumanB::attack(void)
 {
-	LOG(name << " attacks with their " << weaponType.getType());
+	LOG(name << " attacks with their " << weaponType->getType());
 }
 
 
-void	HumanB::setWeapon(Weapon weapon)
+void	HumanB::setWeapon(Weapon &weapon)
 {
-	this->weaponType = weapon;
+	this->weaponType = &weapon;
 	LOG(name << " has been given a " << weapon.getType());
 }
