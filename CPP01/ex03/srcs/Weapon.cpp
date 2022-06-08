@@ -19,5 +19,6 @@ const std::string& Weapon::getType(void)
 
 void	Weapon::setType(std::string newType)
 {
+	LOG("Weapon is now " << newType);
 	this->type = newType;
 }

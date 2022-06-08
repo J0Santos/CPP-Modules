@@ -2,7 +2,7 @@
 
 HumanA::HumanA(std::string name, Weapon &weapon): name(name), weaponType(weapon)
 {
-	LOG("HumanA named " << name << " was born and given a " << weaponType.getType());
+	LOG("HumanA named " << name << " was born and given " << weaponType.getType() << " as a weapon");
 }
 
 HumanA::~HumanA(void)
