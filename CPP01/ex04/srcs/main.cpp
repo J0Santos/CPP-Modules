@@ -5,10 +5,6 @@ std::string	do_replace(std::string str, std::string before, std::string after)
 	size_t	find = -1;
 	size_t	pos = 0;
 
-
-	std::cout << before << "<- before";
-	std::cout << after << "<- after";
-
 	while ((find = str.find(before, pos)) != std::string::npos)
 	{
 			if (before.empty())
