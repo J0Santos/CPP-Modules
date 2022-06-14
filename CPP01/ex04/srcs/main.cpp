@@ -5,6 +5,10 @@ std::string	do_replace(std::string str, std::string before, std::string after)
 	size_t	find = -1;
 	size_t	pos = 0;
 
+
+	std::cout << before << "<- before";
+	std::cout << after << "<- after";
+
 	while ((find = str.find(before, pos)) != std::string::npos)
 	{
 			if (before.empty())
@@ -22,6 +26,7 @@ int	main (int argc, char **argv)
 	std::string	newContent;
 	std::string	fileType = ".replace";
 	std::string	newFileName;
+	char c;
 
 	if (argc != 4)
 	{
@@ -38,12 +43,10 @@ int	main (int argc, char **argv)
 	newFileName = argv[1] + fileType;
 	std::fstream newFile;
 	newFile.open(newFileName, std::ios::app);
-	while (file >> content)
-	{
-		newContent = do_replace(content, argv[2], argv[3]);
-		newContent.insert(newContent.length(), "\n");
-		newFile << newContent;
-	}
+	while (file.get(c))
+		content += c;
+	newContent = do_replace(content, argv[2], argv[3]);
+	newFile << newContent;
 	newFile.close();
 	file.close();
 }
