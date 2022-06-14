@@ -5,12 +5,13 @@ std::string	do_replace(std::string str, std::string before, std::string after)
 	size_t	find = -1;
 	size_t	pos = 0;
 
-	LOG(str);
 	while ((find = str.find(before, pos)) != std::string::npos)
 	{
-			pos += find;
+			if (before.empty())
+				break ;
 			str.erase(find, before.length());
 			str.insert(find, after);
+			pos = find + before.length();
 	}
 	return (str);
 }
