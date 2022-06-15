@@ -6,6 +6,10 @@ Harl::Harl(void)
 	this->funcArr[1] = &Harl::info;
 	this->funcArr[2] = &Harl::warning;
 	this->funcArr[3] = &Harl::error;
+	this->arr[0] = "DEBUG";
+	this->arr[1] = "INFO";
+	this->arr[2] = "WARNING";
+	this->arr[3] = "ERROR";
 }
 
 Harl::~Harl(void)
@@ -37,9 +41,7 @@ void	Harl::error(void)
 }
 
 void	Harl::complain(std::string level)
-{
-	std::string		arr[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
-	
+{	
 	for (int i = 0; i < 4; i++)
 	{
 		if (level.compare(arr[i]) == 0)
