@@ -16,6 +16,21 @@ std::string	do_replace(std::string str, std::string before, std::string after)
 	return (str);
 }
 
+std::string	replace_nl(std::string str)
+{
+	size_t	find = -1;
+	size_t	pos = 0;
+
+	while (((find = str.find("\\n", pos)) != std::string::npos) && pos < str.length())
+	{
+			str.erase(find, 2);
+			str.insert(find, "\n");
+			pos = find++;
+	}
+	LOG(str);
+	return (str);
+}
+
 int	main (int argc, char **argv)
 {
 	std::string	content;
@@ -41,7 +56,7 @@ int	main (int argc, char **argv)
 	newFile.open(newFileName, std::ios::app);
 	while (file.get(c))
 		content += c;
-	newContent = do_replace(content, argv[2], argv[3]);
+	newContent = do_replace(content, replace_nl(argv[2]), replace_nl(argv[3]));
 	newFile << newContent;
 	newFile.close();
 	file.close();
