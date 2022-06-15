@@ -27,7 +27,6 @@ std::string	replace_nl(std::string str)
 			str.insert(find, "\n");
 			pos = find++;
 	}
-	LOG(str);
 	return (str);
 }
 
