@@ -12,6 +12,9 @@ class Harl
 		void	info(void);
 		void	warning(void);
 		void	error(void);
+		
+		typedef void (Harl::*f)(void);
+		f		funcArr[4];
 
 	public:
 		Harl();
