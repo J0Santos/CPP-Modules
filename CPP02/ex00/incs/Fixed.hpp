@@ -9,7 +9,6 @@ class Fixed {
 
 public:
 	Fixed(void);
-	Fixed(int a);
 	Fixed(Fixed const &src);
 	~Fixed(void);
 	int		getRawBits(void) const;
