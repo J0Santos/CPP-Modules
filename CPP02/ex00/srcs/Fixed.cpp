@@ -30,3 +30,8 @@ int	Fixed::getRawBits(void)	const
 	LOG("getRawBits member function called");
 	return (this->fixedPoint);
 }
+
+void	Fixed::setRawBits( int const raw )
+{
+	this->fixedPoint = raw;
+}

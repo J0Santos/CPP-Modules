@@ -21,7 +21,7 @@ public:
 	Fixed	&operator=(Fixed const &rhs);
 
 private:
-	int	fixedPoint;
+	int	rawVal;
 	static const int	fracBits = 8;
 
 };
