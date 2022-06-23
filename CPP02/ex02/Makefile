@@ -70,7 +70,7 @@ CREATE_LIB_TARGETS := 1
 # Pedantic allows for extra warning flags to be used while compiling. If set to
 # true these flags are applied. If set to anything else the flags will not be
 # used. By default it's turned on.
-PEDANTIC := true
+PEDANTIC := false
 
 # Specify the language use by your program. This will allow to detect file
 # extentions automatically (not implemented). It also allows fo warnings to be

@@ -13,7 +13,7 @@ Fixed::Fixed(const int i): rawVal(i << this->fracBits )
 
 Fixed::Fixed(const float f): rawVal(roundf(f * (1 << this->fracBits)))
 {
-	//LOG("Float constructor called");
+	LOG("Float constructor called");
 }
 
 Fixed::Fixed(Fixed const& src)
@@ -48,7 +48,7 @@ void	Fixed::setRawBits(int const raw)
 
 float	Fixed::toFloat( void ) const
 {
-	return (this->rawVal / (1 << this->fracBits));
+	return (this->rawVal / (float)(1 << this->fracBits));
 }
 
 int		Fixed::toInt( void ) const

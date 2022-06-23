@@ -27,6 +27,7 @@ public:
 	bool	operator==( Fixed const &rhs ) const;
 	bool	operator!=( Fixed const &rhs ) const;
 	Fixed	operator+( Fixed const &rhs ) const;
+	Fixed	operator-( Fixed const &rhs ) const;
 	Fixed	operator+() const;
 	Fixed	operator-() const;
 	Fixed	operator*( Fixed const &rhs ) const;
@@ -35,6 +36,11 @@ public:
 	Fixed	operator--( void );
 	Fixed&	operator++( int );
 	Fixed&	operator--( int );
+
+	static Fixed&	min(Fixed& fp1, Fixed& fp2);
+	static const Fixed&	min(const Fixed& fp1, const Fixed& fp2);
+	static Fixed&	max(Fixed& fp1, Fixed& fp2);
+	static const Fixed&	max(const Fixed& fp1, const Fixed& fp2);
 
 private:
 	int	rawVal;
