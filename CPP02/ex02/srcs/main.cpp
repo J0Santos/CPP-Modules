@@ -17,9 +17,9 @@ int	main(void)
 
 
 	Fixed	a;
-	Fixed const	b( 10 );
-	Fixed const	c( -42.42f );
-	Fixed const d( b );
+	Fixed	b( 10 );
+	Fixed	c( -42.42f );
+	Fixed	d( b );
 
 	a = Fixed( 1234.4321f );
 
@@ -324,18 +324,83 @@ int	main(void)
 	std::cout << std::endl;
 	std::cout << std::endl;
 
-	// std::cout << "a is " << a << "before post-increment" << std::endl;
-	// a++;
-	// std::cout << "a after post-increment " << a.toFloat() << std::endl;
-	// std::cout << "b is " << b << "before post-increment" << std::endl;
-	// b++;
-	// std::cout << "b after post-increment " << b.toFloat() << std::endl;
-	// std::cout << "c is " << c << "before post-increment" << std::endl;
-	// c++;
-	// std::cout << "c after post-increment " << c.toFloat() << std::endl;
-	// std::cout << "d is " << d << "before post-increment" << std::endl;
-	// d++;
-	// std::cout << "d after post-increment " << d.toFloat() << std::endl;
+	LOG("post-increment");
+	std::cout << "a is " << a << " before post-increment" << std::endl;
+	a++;
+	std::cout << "a after post-increment " << a.toFloat() << std::endl;
+	std::cout << std::endl;
+	std::cout << "b is " << b << " before post-increment" << std::endl;
+	b++;
+	std::cout << "b after post-increment " << b.toFloat() << std::endl;
+	std::cout << std::endl;
+	std::cout << "c is " << c << " before post-increment" << std::endl;
+	c++;
+	std::cout << "c after post-increment " << c.toFloat() << std::endl;
+	std::cout << std::endl;
+	std::cout << "d is " << d << " before post-increment" << std::endl;
+	d++;
+	std::cout << "d after post-increment " << d.toFloat() << std::endl;
+
+	std::cout << std::endl;
+	std::cout << std::endl;
+
+	LOG("pre-increment");
+	std::cout << "a is " << a << " before pre-increment" << std::endl;
+	++a;
+	std::cout << "a after pre-increment " << a.toFloat() << std::endl;
+	std::cout << std::endl;
+	std::cout << "b is " << b << " before pre-increment" << std::endl;
+	++b;
+	std::cout << "b after pre-increment " << b.toFloat() << std::endl;
+	std::cout << std::endl;
+	std::cout << "c is " << c << " before pre-increment" << std::endl;
+	++c;
+	std::cout << "c after pre-increment " << c.toFloat() << std::endl;
+	std::cout << std::endl;
+	std::cout << "d is " << d << " before pre-increment" << std::endl;
+	++d;
+	std::cout << "d after pre-increment " << d.toFloat() << std::endl;
+
+	std::cout << std::endl;
+	std::cout << std::endl;
+
+	LOG("post-decrement");
+	std::cout << "a is " << a << " before post-decrement" << std::endl;
+	a--;
+	std::cout << "a after post-decrement " << a.toFloat() << std::endl;
+	std::cout << std::endl;
+	std::cout << "b is " << b << " before post-decrement" << std::endl;
+	b--;
+	std::cout << "b after post-decrement " << b.toFloat() << std::endl;
+	std::cout << std::endl;
+	std::cout << "c is " << c << " before post-decrement" << std::endl;
+	c--;
+	std::cout << "c after post-decrement " << c.toFloat() << std::endl;
+	std::cout << std::endl;
+	std::cout << "d is " << d << " before post-decrement" << std::endl;
+	d--;
+	std::cout << "d after post-decrement " << d.toFloat() << std::endl;
+
+	std::cout << std::endl;
+	std::cout << std::endl;
+
+	LOG("pre-decrement");
+	std::cout << "a is " << a << " before pre-decrement" << std::endl;
+	--a;
+	std::cout << "a after pre-decrement " << a.toFloat() << std::endl;
+	std::cout << std::endl;
+	std::cout << "b is " << b << " before pre-decrement" << std::endl;
+	--b;
+	std::cout << "b after pre-decrement " << b.toFloat() << std::endl;
+	std::cout << std::endl;
+	std::cout << "c is " << c << " before pre-decrement" << std::endl;
+	--c;
+	std::cout << "c after pre-decrement " << c.toFloat() << std::endl;
+	std::cout << std::endl;
+	std::cout << "d is " << d << " before pre-decrement" << std::endl;
+	--d;
+	std::cout << "d after pre-decrement " << d.toFloat() << std::endl;
+
 
 	return 0;
 }

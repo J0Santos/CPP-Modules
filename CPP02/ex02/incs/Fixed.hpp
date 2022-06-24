@@ -2,6 +2,7 @@
 # define FIXED_HPP
 
 # include <iostream>
+# include <math.h>
 
 #define	LOG(x) std::cout << x << std::endl
 
