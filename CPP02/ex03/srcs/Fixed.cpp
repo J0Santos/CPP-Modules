@@ -70,7 +70,10 @@ Fixed	Fixed::operator+( void ) const
 
 Fixed	Fixed::operator-( Fixed const &rhs ) const
 {
-	return this->rawVal - rhs.rawVal;
+	Fixed	ret;
+
+	ret.setRawBits(this->rawVal - rhs.rawVal);
+	return ret;
 }
 
 Fixed	Fixed::operator-( void ) const
@@ -80,7 +83,12 @@ Fixed	Fixed::operator-( void ) const
 
 Fixed	Fixed::operator*( Fixed const &rhs ) const
 {
-	return this->rawVal * rhs.rawVal;
+	int	result;
+	Fixed 	ret;
+
+	result = ((signed long long)this->rawVal * (signed long long)rhs.rawVal >> this->fracBits);
+	ret.setRawBits(result);
+	return ret;
 }
 
 Fixed	Fixed::operator/( Fixed const &rhs ) const

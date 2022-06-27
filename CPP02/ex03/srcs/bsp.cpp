@@ -1,25 +1,28 @@
 #include "Point.hpp"
 
-bool    bsp(Point const a, Point const b, Point const c, Point const point)
+Fixed	getTriangleArea	(Point v1, Point v2, Point v3)
 {
-	Fixed	alpha;
-	Fixed	alphaD;
-	Fixed	beta;
-	Fixed	gamma;
+	Fixed	area;
 
-    std::cout << (b.getY() - c.getY()) * (point.getX() - c.getX()) << std::endl;
-    std::cout << (c.getX() - b.getX()) * (point.getY() - c.getY()) << std::endl;
+	area = 	(v1.getX() * ( v2.getY() - v3.getY() ) + v2.getX() * ( v1.getY() - v3.getY() ) 
+		+ v3.getX() * ( v1.getY() - v2.getY())) / 2;
+	if (area < 0)
+		area = area * -1;
+	std::cout << area << std::endl;
+	return area;
+}
 
+bool    bsp(Point const a, Point const b, Point const c, Point const p)
+{
+	Fixed	abc;
+	Fixed	pab;
+	Fixed	pac;
+	Fixed	pbc;
 
+	abc = getTriangleArea(a, b, c);
+	pab = getTriangleArea(p, a, b);
+	pac = getTriangleArea(a, a, c);
+	pbc = getTriangleArea(p, b, c);
 
-	alpha = ((b.getY() - c.getY()) * (point.getX() - c.getX()) + (c.getX() - b.getX()) * (point.getY() - c.getY())) ;
-	alphaD = ((b.getY() - c.getY()) * (a.getX() - c.getX()) + (c.getX() - b.getX()) * (a.getY() - c.getY()));
-
-	std::cout << alpha << std::endl;
-	std::cout << alphaD << std::endl;
-	// beta = ((c.getY() - a.getY()) * (point.getX() - c.getX()) + (a.getX() - c.getX()) * (point.getY() - c.getY()))
-	// 	/ ((b.getY() - c.getY()) * (a.getX() - c.getX()) + (c.getX() - b.getX()) * (a.getY() - c.getY()));
-	// gamma = Fixed(1.0f) - alpha - beta;
-	
-	return (alpha > 0 && beta > 0 && gamma > 0);
+	return (abc >= pab + pac + pbc);
 }

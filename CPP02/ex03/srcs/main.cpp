@@ -9,9 +9,8 @@ int main(void)
 	Point	c( 6.84, 2.5 );
 	bool	valid;
 
-	valid = bsp(a, b, c, Point(10, 10));
+	valid = bsp(a, b, c, Point(100, 1000));
 
     std::cout << valid << std::endl;
-    // std::cout << a.getY() << std::endl;
     return 0;
 }
