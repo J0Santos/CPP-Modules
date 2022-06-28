@@ -1,11 +1,5 @@
 #include "HumanB.hpp"
 
-HumanB::HumanB(std::string name, Weapon *weapon): name(name), weaponType(weapon)
-{
-	LOG("HumanB named " << name << " was born with " << weaponType->getType() << " as a weapon");
-}
-
-
 HumanB::HumanB(std::string name): name(name)
 {
 	LOG("HumanB named " << name << " was born without a weapon");
