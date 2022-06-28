@@ -30,37 +30,37 @@ int		Fixed::toInt( void ) const { return (this->rawVal >> this->fracBits); }
 
 bool	Fixed::operator>( Fixed const &rhs ) const
 {
-	return ( this->rawVal > rhs.rawVal );
+	return ( this->toFloat() > rhs.toFloat() );
 }
 
 bool	Fixed::operator<( Fixed const &rhs ) const
 {
-	return ( rhs.rawVal > this->rawVal );
+	return ( rhs.toFloat() > this->toFloat() );
 }
 
 bool	Fixed::operator>=( Fixed const &rhs ) const
 {
-	return ( this->rawVal >= rhs.rawVal );
+	return ( this->toFloat() >= rhs.toFloat() );
 }
 
 bool	Fixed::operator<=( Fixed const &rhs ) const
 {
-	return ( rhs.rawVal >= this->rawVal );
+	return ( rhs.toFloat() >= this->toFloat() );
 }
 
 bool	Fixed::operator==( Fixed const &rhs ) const
 {
-	return this->rawVal == rhs.rawVal;
+	return this->toFloat() == rhs.toFloat();
 }
 
 bool	Fixed::operator!=( Fixed const &rhs ) const
 {
-	return this->rawVal != rhs.rawVal;
+	return this->toFloat() != rhs.toFloat();
 }
 
 Fixed	Fixed::operator+( Fixed const &rhs ) const
 {
-	return this->rawVal + rhs.rawVal;
+	return this->toFloat() + rhs.toFloat();
 }
 
 Fixed	Fixed::operator+( void ) const
@@ -70,30 +70,30 @@ Fixed	Fixed::operator+( void ) const
 
 Fixed	Fixed::operator-( Fixed const &rhs ) const
 {
-	return this->rawVal - rhs.rawVal;
+	return this->toFloat() - rhs.toFloat();
 }
 
 Fixed	Fixed::operator-( void ) const
 {
-	return this->rawVal * -1;
+	return this->toFloat() * -1;
 }
 
 Fixed	Fixed::operator*( Fixed const &rhs ) const
 {
-	return this->rawVal * rhs.rawVal;
+	return this->toFloat() * rhs.toFloat();
 }
 
 Fixed	Fixed::operator/( Fixed const &rhs ) const
 {
-	return this->rawVal / rhs.rawVal;
+	return this->toFloat() / rhs.toFloat();
 }
 
 Fixed	Fixed::operator++( void )
 {
 	Fixed	temp;
 	
-	temp.rawVal = ++rawVal;
-	return temp;
+	return temp.rawVal = ++rawVal;
+	// return temp;
 }
 
 Fixed&	Fixed::operator++( int )
@@ -106,8 +106,8 @@ Fixed	Fixed::operator--( void )
 {
 	Fixed	temp;
 	
-	temp.rawVal = --rawVal;
-	return temp;
+	return temp.rawVal = --rawVal;
+	// return temp;
 }
 
 Fixed&	Fixed::operator--( int )

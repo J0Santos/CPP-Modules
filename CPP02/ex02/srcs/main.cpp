@@ -401,6 +401,18 @@ int	main(void)
 	--d;
 	std::cout << "d after pre-decrement " << d.toFloat() << std::endl;
 
+	float f = 42.5;
+	Fixed k(42.5f);
+
+	std::cout << "f: " << f << std::endl;
+	std::cout << "k: " << k.toFloat() << std::endl;
+	// ++f;
+	// ++k;
+	std::cout << "f: " << f++ << std::endl;
+	std::cout << "k: " << k++.toFloat() << std::endl;
+	std::cout << "f: " << f << std::endl;
+	std::cout << "k: " << k.toFloat() << std::endl;
+
 
 	return 0;
 }
