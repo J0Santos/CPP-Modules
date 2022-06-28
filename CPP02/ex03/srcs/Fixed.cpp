@@ -30,37 +30,37 @@ int		Fixed::toInt( void ) const { return (this->rawVal >> this->fracBits); }
 
 bool	Fixed::operator>( Fixed const &rhs ) const
 {
-	return ( this->rawVal > rhs.rawVal );
+	return ( this->toFloat() > rhs.toFloat() );
 }
 
 bool	Fixed::operator<( Fixed const &rhs ) const
 {
-	return ( rhs.rawVal > this->rawVal );
+	return ( rhs.toFloat() > this->toFloat() );
 }
 
 bool	Fixed::operator>=( Fixed const &rhs ) const
 {
-	return ( this->rawVal >= rhs.rawVal );
+	return ( this->toFloat() >= rhs.toFloat() );
 }
 
 bool	Fixed::operator<=( Fixed const &rhs ) const
 {
-	return ( rhs.rawVal >= this->rawVal );
+	return ( rhs.toFloat() >= this->toFloat() );
 }
 
 bool	Fixed::operator==( Fixed const &rhs ) const
 {
-	return this->rawVal == rhs.rawVal;
+	return this->toFloat() == rhs.toFloat();
 }
 
 bool	Fixed::operator!=( Fixed const &rhs ) const
 {
-	return this->rawVal != rhs.rawVal;
+	return this->toFloat() != rhs.toFloat();
 }
 
 Fixed	Fixed::operator+( Fixed const &rhs ) const
 {
-	return this->rawVal + rhs.rawVal;
+	return this->toFloat() + rhs.toFloat();
 }
 
 Fixed	Fixed::operator+( void ) const
@@ -70,30 +70,22 @@ Fixed	Fixed::operator+( void ) const
 
 Fixed	Fixed::operator-( Fixed const &rhs ) const
 {
-	Fixed	ret;
-
-	ret.setRawBits(this->rawVal - rhs.rawVal);
-	return ret;
+	return this->toFloat() - rhs.toFloat();
 }
 
 Fixed	Fixed::operator-( void ) const
 {
-	return this->rawVal * -1;
+	return this->toFloat() * -1;
 }
 
 Fixed	Fixed::operator*( Fixed const &rhs ) const
 {
-	int	result;
-	Fixed 	ret;
-
-	result = ((signed long long)this->rawVal * (signed long long)rhs.rawVal >> this->fracBits);
-	ret.setRawBits(result);
-	return ret;
+	return this->toFloat() * rhs.toFloat();
 }
 
 Fixed	Fixed::operator/( Fixed const &rhs ) const
 {
-	return this->rawVal / rhs.rawVal;
+	return this->toFloat() / rhs.toFloat();
 }
 
 Fixed	Fixed::operator++( void )
