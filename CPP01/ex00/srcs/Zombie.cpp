@@ -6,6 +6,10 @@ Zombie::Zombie( std::string name )
 	PRINT("Zombie " << this->name << " appeared!");
 }
 
+Zombie::Zombie( void )
+{
+}
+
 Zombie::~Zombie( void )
 {
 	PRINT("Zombie " << this->name << " was killed!");

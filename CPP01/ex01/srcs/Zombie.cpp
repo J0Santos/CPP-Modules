@@ -5,17 +5,22 @@ Zombie::Zombie(void)
 	PRINT("A Zombie arised");
 }
 
-Zombie::Zombie(std::string name): name(name)
+Zombie::Zombie(std::string name): _name(name)
 {
-	PRINT("Zombie's name is " << this->name);
+	PRINT("Zombie's name is " << this->_name);
 }
 
 Zombie::~Zombie(void)
 {
-	PRINT("Zombie " << this->name << " was killed!");
+	PRINT("Zombie " << this->_name << " was killed!");
 }
 
 void	Zombie::announce(void)
 {
-    PRINT(this->name << ": " << " BraiiiiiiinnnzzzZ...");
+    PRINT(this->_name << ": " << " BraiiiiiiinnnzzzZ...");
+}
+
+void	Zombie::setName( std::string name)
+{
+	this->_name = name;
 }
