@@ -405,13 +405,16 @@ int	main(void)
 	Fixed k(42.5f);
 
 	std::cout << "f: " << f << std::endl;
-	std::cout << "k: " << k.toFloat() << std::endl;
-	// ++f;
-	// ++k;
-	std::cout << "f: " << f++ << std::endl;
-	std::cout << "k: " << k++.toFloat() << std::endl;
+	std::cout << "k: " << k << std::endl;
+	// std::cout << "f: " << (f++) << ":" << f << std::endl;
+	std::cout << "k: " << (k++) << ":" << k << std::endl;
+	// std::cout << "k: " << k++ << std::endl;
 	std::cout << "f: " << f << std::endl;
-	std::cout << "k: " << k.toFloat() << std::endl;
+	std::cout << "k: " << k << std::endl;
+	std::cout << "f: " << --f << std::endl;
+	std::cout << "k: " << --k << std::endl;
+	std::cout << "f: " << f << std::endl;
+	std::cout << "k: " << k << std::endl;
 
 
 	return 0;

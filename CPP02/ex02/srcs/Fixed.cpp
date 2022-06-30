@@ -90,29 +90,25 @@ Fixed	Fixed::operator/( Fixed const &rhs ) const
 
 Fixed	Fixed::operator++( void )
 {
-	Fixed	temp;
-	
-	return temp.rawVal = ++rawVal;
-	// return temp;
+	++this->rawVal;
+	return *this;
 }
 
 Fixed&	Fixed::operator++( int )
 {
-	this->rawVal++;
+	operator++();
 	return *this;
 }
 
 Fixed	Fixed::operator--( void )
 {
-	Fixed	temp;
-	
-	return temp.rawVal = --rawVal;
-	// return temp;
+	this->rawVal--;
+	return *this;
 }
 
 Fixed&	Fixed::operator--( int )
 {
-	this->rawVal--;
+	operator--();
 	return *this;
 }
 
