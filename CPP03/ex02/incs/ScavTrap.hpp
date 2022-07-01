@@ -9,7 +9,6 @@ private:
 	
 
 public:
-	ScavTrap();
 	ScavTrap( std::string name );
 	ScavTrap(ScavTrap const& src);
 	~ScavTrap();

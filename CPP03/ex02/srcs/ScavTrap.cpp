@@ -1,10 +1,5 @@
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap( void )
-{
-	LOG("Scavtrap shows up");
-}
-
 ScavTrap::ScavTrap( std::string name)
 {
 	this->setName(name);
