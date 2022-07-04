@@ -1,0 +1,33 @@
+#include "Dog.hpp"
+
+Dog::Dog( void ): Animal("Dog"), _sound("Woof woof")
+{
+}
+
+Dog::Dog( Dog const& src)
+{
+	*this = src;
+}
+
+Dog::~Dog( void )
+{
+
+}
+
+Dog& Dog::operator=( Dog const& rhs )
+{
+	this->type = rhs.type;
+	this->_sound = rhs._sound;
+	return *this;
+}
+
+void	Dog::info( void )
+{
+	LOG("sound: " << _sound);
+	LOG("type: " << type);
+}
+
+void	Dog::makeSound( void ) const
+{
+	LOG(this->_sound);
+}
