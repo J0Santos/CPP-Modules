@@ -1,21 +1,22 @@
 #include "DiamondTrap.hpp"
 
-DiamondTrap::DiamondTrap( void ): FragTrap("whatever"), ScavTrap("whatever")
+DiamondTrap::DiamondTrap( void )
 {
 	this->name = "whatever";
-	this->hitPoints = FragTrap::hitPoints;
-	this->energyPoints = ScavTrap::energyPoints;
-	this->attackDmg = FragTrap::attackDmg;	
+	this->hitPoints = FragTrap::hpDefault;
+	this->energyPoints = ScavTrap::epDefault;
+	this->attackDmg = FragTrap::dmgDefault;
+
 	LOG("DiamondTrap stats:");
 	this->printStats();
 }
 
-DiamondTrap::DiamondTrap( std::string name ): ClapTrap(name), FragTrap(name), ScavTrap(name), _name(name)
+DiamondTrap::DiamondTrap( std::string name ): ScavTrap(name), FragTrap(name), _name(name)
 {
-	this->hitPoints = FragTrap::hitPoints;
-	this->energyPoints = ScavTrap::energyPoints;
-	this->attackDmg = FragTrap::attackDmg;
-	ClapTrap::name += "_clap_name";
+	this->hitPoints = FragTrap::hpDefault;
+	this->energyPoints = ScavTrap::epDefault;
+	this->attackDmg = FragTrap::dmgDefault;
+	ClapTrap::name = _name + "_clap_name";
 	LOG("DiamondTrap stats:");
 	this->printVals();
 }
@@ -44,10 +45,15 @@ void	DiamondTrap::attack( const std::string &target )
 	this->ScavTrap::attack( target );
 }
 
+void	DiamondTrap::whoAmI( void )
+{
+	LOG("My name is " << this->name << " but you can call me " << _name);
+}
+
 void	DiamondTrap::printVals( void ) const
 {
 	LOG("\tname: " << this->name << " aka " << this->_name);
-	LOG("\thit points: " << this->hitPoints);
-	LOG("\tattack damage: " << this->attackDmg);
-	LOG("\tenergy points: " << this->energyPoints);
+	LOG("\thit points: " << this->getHitPoints());
+	LOG("\tenergy points: " << this->getEnergyPoints());
+	LOG("\tattack damage: " << this->getAttackDmg());
 }

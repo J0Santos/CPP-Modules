@@ -5,8 +5,10 @@
 
 class FragTrap : public virtual ClapTrap {
 
-private:
-
+protected:
+	static const int	hpDefault = 100;
+	static const int	epDefault = 100;
+	static const int	dmgDefault = 30;
 
 public:
 	FragTrap ( void );

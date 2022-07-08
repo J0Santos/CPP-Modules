@@ -8,10 +8,10 @@ ClapTrap::ClapTrap( void )
 ClapTrap::ClapTrap( std::string name ): name(name), hitPoints(10), 
 										energyPoints(10), attackDmg(0)
 {
-	LOG("ClapTrap spawns with the name " << name 
-		<< " with " << hitPoints << " hit points, " 
-		<< energyPoints <<  " energy and " 
-		<< attackDmg << " attack damage.");
+	// LOG("ClapTrap spawns with the name " << name 
+	// 	<< " with " << hitPoints << " hit points, " 
+	// 	<< energyPoints <<  " energy and " 
+	// 	<< attackDmg << " attack damage.");
 }
 
 ClapTrap::ClapTrap(ClapTrap const& src)
@@ -121,6 +121,6 @@ void	ClapTrap::printStats( void ) const
 {
 	LOG("\tname: " << this->getName());
 	LOG("\thit points: " << this->getHitPoints());
-	LOG("\tattack damage: " << this->getAttackDmg());
 	LOG("\tenergy points: " << this->getEnergyPoints());
+	LOG("\tattack damage: " << this->getAttackDmg());
 }

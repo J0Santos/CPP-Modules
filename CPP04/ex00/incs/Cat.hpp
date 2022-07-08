@@ -1,4 +1,7 @@
-#include "Animal.hpp"
+#ifndef CAT_HPP
+# define CAT_HPP
+
+# include "Animal.hpp"
 
 class Cat : public Animal {
 
@@ -14,3 +17,5 @@ public:
 	void	info( void );
 	void	makeSound( void ) const;
 };
+
+#endif /* CAT_HPP */

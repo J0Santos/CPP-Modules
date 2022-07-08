@@ -3,20 +3,20 @@
 ScavTrap::ScavTrap( void ): ClapTrap("Scavenger")
 {
 	this->name = "Scavenger";
-	this->hitPoints = 100;
-	this->energyPoints = 50;
-	this->attackDmg = 20;
+	this->hitPoints = hpDefault;
+	this->energyPoints = epDefault;
+	this->attackDmg = dmgDefault;
 	// LOG("ScavTrap get shot from inside Claptrap's belly with the following stats:");
 	// this->printStats();
 }
 
 ScavTrap::ScavTrap( std::string name): ClapTrap(name)
 {
-	this-> hitPoints = 100;
-	this->energyPoints = 50;
-	this->attackDmg = 20;
-	LOG("ScavTrap get shot from inside Claptrap's belly with the following stats:");
-	this->printStats();
+	this-> hitPoints = hpDefault;
+	this->energyPoints = epDefault;
+	this->attackDmg = dmgDefault;
+	// LOG("ScavTrap get shot from inside Claptrap's belly with the following stats:");
+	// this->printStats();
 }
 
 ScavTrap::ScavTrap( ScavTrap const& src )
@@ -26,7 +26,7 @@ ScavTrap::ScavTrap( ScavTrap const& src )
 
 ScavTrap::~ScavTrap()
 {
-	LOG(this->getName() << " disappears into thin air - Scavtrap");
+	//LOG(this->getName() << " disappears into thin air - Scavtrap");
 }
 
 ScavTrap&	ScavTrap::operator=(ScavTrap const& rhs)

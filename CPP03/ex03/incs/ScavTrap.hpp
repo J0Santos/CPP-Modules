@@ -5,8 +5,10 @@
 
 class ScavTrap : public virtual ClapTrap
 {
-private:
-	
+protected:
+	static const int hpDefault = 100;
+	static const int epDefault = 50;
+	static const int dmgDefault = 20;
 
 public:
 	ScavTrap( void );
