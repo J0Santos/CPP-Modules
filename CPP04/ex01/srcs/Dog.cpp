@@ -3,6 +3,7 @@
 Dog::Dog( void ): Animal("Dog"), _sound("Woof woof")
 {
 	brain = new Brain();
+	LOG("Dog appeared");
 }
 
 Dog::Dog( Dog const& src)
@@ -13,6 +14,7 @@ Dog::Dog( Dog const& src)
 Dog::~Dog( void )
 {
 	delete brain;
+	LOG("Dog dead");
 }
 
 Dog& Dog::operator=( Dog const& rhs )

@@ -5,10 +5,11 @@
 
 # define LOG(x) std::cout << x << std::endl
 
+
 class Brain {
 
 private:
-
+	std::string	ideas[100];
 
 public:
 	Brain( void ); /* Default constructor */
@@ -17,7 +18,6 @@ public:
 
 	Brain	&operator=( Brain const& rhs ); /* Copy assignment operator */
 
-	std::string	ideas[100];
 };
 
 #endif /* BRAIN_HPP */

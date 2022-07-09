@@ -2,6 +2,7 @@
 
 Brain::Brain( void )
 {
+	LOG("Brain appeared");
 }
 
 Brain::Brain( Brain const& src )
@@ -12,6 +13,7 @@ Brain::Brain( Brain const& src )
 Brain::~Brain( void )
 {
 	delete []ideas;
+	LOG("Brain dead");
 }
 
 

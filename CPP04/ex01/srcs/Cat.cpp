@@ -3,6 +3,7 @@
 Cat::Cat( void ): Animal("Cat"), _sound("Miau")
 {
 	brain = new Brain();
+	LOG("Cat appeared");
 }
 
 Cat::Cat( Cat const& src)
@@ -13,6 +14,7 @@ Cat::Cat( Cat const& src)
 Cat::~Cat( void )
 {
 	delete brain;
+	LOG("Cat dead");
 }
 
 Cat& Cat::operator=( Cat const& rhs )
