@@ -18,6 +18,7 @@ public:
 
 	void	info( void );
 	void	makeSound( void ) const;
+	void	getThought( void ) const;
 };
 
 #endif /* CAT_HPP */

@@ -35,3 +35,8 @@ void	Cat::makeSound( void ) const
 {
 	LOG(_sound);
 }
+
+void	Cat::getThought( void ) const
+{
+	brain->getIdeas();
+}

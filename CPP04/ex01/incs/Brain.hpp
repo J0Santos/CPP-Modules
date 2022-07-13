@@ -4,12 +4,12 @@
 # include <iostream>
 
 # define LOG(x) std::cout << x << std::endl
-
+# define BRAIN_SIZE 100
 
 class Brain {
 
 private:
-	std::string	ideas[100];
+	std::string	ideas[BRAIN_SIZE];
 
 public:
 	Brain( void ); /* Default constructor */
@@ -17,6 +17,8 @@ public:
 	~Brain( void ); /* Destructor */
 
 	Brain	&operator=( Brain const& rhs ); /* Copy assignment operator */
+
+	std::string	*getIdeas( void );
 
 };
 

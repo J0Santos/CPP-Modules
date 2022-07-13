@@ -35,3 +35,8 @@ void	Dog::makeSound( void ) const
 {
 	LOG(this->_sound);
 }
+
+void	Dog::getThought( void ) const
+{
+	LOG(brain->getIdeas());
+}

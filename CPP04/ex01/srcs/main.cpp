@@ -4,7 +4,7 @@
 
 int	main( void )
 {
-	const Animal	*animal[20];
+	Animal	*animal[20];
 
 	for (int i = 0; i < 20; i++)
 	{
@@ -13,9 +13,15 @@ int	main( void )
 		else
 			animal[i] = new Cat();
 	}
-	animal[3]->
-
-	delete []animal;
+	for (int i = 0; i < 20; i++)
+	{
+		animal[i]->makeSound();
+		static_cast<Dog *>(animal[i])->getThought();
+	}
+	for (int i = 0; i < 20; i++)
+	{
+		delete animal[i];
+	}
 
 	// const Animal *meta = new Animal();
 	// const WrongAnimal *wrong = new WrongAnimal();
