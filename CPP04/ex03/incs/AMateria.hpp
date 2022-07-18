@@ -10,7 +10,6 @@ class AMateria {
 	protected:
 		std::string	type;
 
-
 	public:
 		AMateria( void ); /* Default constructor */
 		AMateria( std::string const& type );
@@ -20,6 +19,7 @@ class AMateria {
 		AMateria	&operator=( AMateria const& rhs ); /* Copy assignment operator */
 
 		std::string const& getType( void ) const;
+		void	setType( std::string newType);
 		virtual AMateria* clone( void ) const = 0;
 		virtual void use( ICharacter& target );
 
