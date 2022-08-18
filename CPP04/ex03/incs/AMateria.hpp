@@ -21,7 +21,7 @@ class AMateria {
 		std::string const& getType( void ) const;
 		void	setType( std::string newType);
 		virtual AMateria* clone( void ) const = 0;
-		virtual void use( ICharacter& target );
+		virtual void	use( ICharacter& target );
 
 };
 

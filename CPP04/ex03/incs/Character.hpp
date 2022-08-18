@@ -11,7 +11,7 @@ class Character: ICharacter {
 		std::string	_name;
 
 	public:
-		AMateria*	inventory[4];
+		AMateria	*inventory[4];
 		Character( void ); /* Default constructor */
 		Character( std::string name );
 		Character( Character const& src ); /* Copy constructor */
@@ -22,6 +22,7 @@ class Character: ICharacter {
 		void	equip( AMateria* m );
 		void	unequip( int idx );
 		void	use(int idx, ICharacter& target );
+		int	inventSlot( void );
 
 
 };
