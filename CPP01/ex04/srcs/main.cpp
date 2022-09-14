@@ -52,7 +52,7 @@ int	main (int argc, char **argv)
 	}
 	newFileName = argv[1] + fileType;
 	std::fstream newFile;
-	newFile.open(newFileName, std::ios::app);
+	newFile.open(newFileName.c_str(), std::ios::app);
 	while (file.get(c))
 		content += c;
 	newContent = do_replace(content, replace_nl(argv[2]), replace_nl(argv[3]));

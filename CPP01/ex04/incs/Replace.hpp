@@ -4,6 +4,7 @@
 #include <iostream>
 #include <string>
 #include <fstream>
+#include <stdlib.h>
 
 # ifndef LOG
 #  define LOG(x) std::cout << x << std::endl
