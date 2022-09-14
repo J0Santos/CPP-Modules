@@ -20,6 +20,13 @@ void	Zombie::announce(void)
     PRINT(this->_name << ": " << " BraiiiiiiinnnzzzZ...");
 }
 
+void	Zombie::announce2(void)
+{
+	static int i;
+
+    PRINT(this->_name << ": " << " I'm zombie number " << i++);
+}
+
 void	Zombie::setName( std::string name)
 {
 	this->_name = name;

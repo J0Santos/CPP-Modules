@@ -4,7 +4,7 @@ Zombie	*zombieHorde(int N, std::string name)
 {
 	if (N < 1)
 	{
-		PRINT("Zombie Hord has to be at least 1 zombies");
+		PRINT("Zombie Horde has to be at least 1 zombies");
 		exit( EXIT_FAILURE );
 	}
 
