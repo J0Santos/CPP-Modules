@@ -9,16 +9,19 @@ int	main( void )
 	const Animal *j = new Dog();
 	const Animal *n = new Cat();
 	const WrongAnimal *i = new WrongCat();
+	const WrongCat wc;
 
 	meta->makeSound();
 	wrong->makeSound();
 
 	LOG(j->getType());
 	j->makeSound();
-	LOG(i->getType());
-	i->makeSound();
 	LOG(n->getType());
 	n->makeSound();
+	LOG(i->getType());
+	i->makeSound();
+	LOG(wc.getType());
+	wc.makeSound();
 
 	delete meta;
 	delete wrong;

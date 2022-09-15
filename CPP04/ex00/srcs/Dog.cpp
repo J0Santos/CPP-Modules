@@ -2,16 +2,17 @@
 
 Dog::Dog( void ): Animal("Dog"), _sound("Woof woof")
 {
+	LOG("Dog appeared");
 }
 
-Dog::Dog( Dog const& src)
+Dog::Dog( Dog const& src )
 {
 	*this = src;
 }
 
 Dog::~Dog( void )
 {
-
+	LOG("Dog disappeared");
 }
 
 Dog& Dog::operator=( Dog const& rhs )

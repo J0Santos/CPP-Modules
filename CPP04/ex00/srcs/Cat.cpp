@@ -2,16 +2,17 @@
 
 Cat::Cat( void ): Animal("Cat"), _sound("Miau")
 {
+	LOG("Cat appeared");
 }
 
-Cat::Cat( Cat const& src)
+Cat::Cat( Cat const& src )
 {
 	*this = src;
 }
 
 Cat::~Cat( void )
 {
-
+	LOG("Cat disappeared");
 }
 
 Cat& Cat::operator=( Cat const& rhs )
