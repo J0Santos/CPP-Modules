@@ -17,6 +17,7 @@ public:
 	ScavTrap& operator=(ScavTrap const& rhs);
 
 	void	guardGate( void );
+	void	attack(const std::string& target);
 };
 
 #endif /* SCAVTRAP_HPP */

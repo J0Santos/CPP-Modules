@@ -21,6 +21,7 @@ int	main( void )
 	trap.beRepaired(10);
 	trap.beRepaired(10);
 	trap.beRepaired(10);
+	trap.guardGate();
 	trap.takeDamage(300);
 	trap.beRepaired(20);
 	trap.takeDamage(30);
