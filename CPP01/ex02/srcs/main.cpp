@@ -10,7 +10,7 @@ int	main(void)
 
 	LOG("Memory addresses:");
 	LOG("\t brain: " << &brain);
-	LOG("\t stringPTR: " << &stringPTR);
+	LOG("\t stringPTR: " << stringPTR);
 	LOG("\t stringREF: " << &stringREF);
 	LOG("Values:");
 	LOG("\t brain: " << brain);
