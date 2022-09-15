@@ -21,7 +21,7 @@ public:
 	std::string	getType( void ) const;
 	void	setType( std::string new_type );
 
-	virtual void makeSound( void ) const;
+	void makeSound( void ) const;
 };
 
 #endif /* WRONGANIMAL_HPP */

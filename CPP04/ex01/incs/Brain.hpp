@@ -4,7 +4,7 @@
 # include <iostream>
 
 # define LOG(x) std::cout << x << std::endl
-# define BRAIN_SIZE 100
+# define BRAIN_SIZE 3
 
 class Brain {
 

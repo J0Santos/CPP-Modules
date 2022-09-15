@@ -4,11 +4,7 @@ Brain::Brain( void )
 {
 	LOG("Brain appeared");
 	for (int i = 0; i < BRAIN_SIZE; i++)
-	{
-		std::string temp;
-		temp = i;
-		this->ideas[i] = "Idea " + temp;
-	}
+		this->ideas[i] = "Idea ";
 }
 
 Brain::Brain( Brain const& src )
@@ -31,5 +27,7 @@ Brain&	Brain::operator=( Brain const& rhs )
 
 std::string *Brain::getIdeas( void )
 {
+	for (int i = 0; i < BRAIN_SIZE; i++)
+		LOG(this->ideas[i] << " number " << i);
 	return this->ideas;
 }

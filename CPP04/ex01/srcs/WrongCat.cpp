@@ -2,6 +2,7 @@
 
 WrongCat::WrongCat( void ): WrongAnimal("WrongCat"), _sound("I want lasagna!")
 {
+	LOG("Wrong cat appeared");
 }
 
 WrongCat::WrongCat( WrongCat const& src)

@@ -6,9 +6,10 @@ Cat::Cat( void ): Animal("Cat"), _sound("Miau")
 	LOG("Cat appeared");
 }
 
-Cat::Cat( Cat const& src)
+Cat::Cat( Cat const& src): Animal(src.type), _sound(src._sound) 
 {
-	*this = src;
+	LOG("Cat appeared");
+	this->brain = new Brain(*src.brain);
 }
 
 Cat::~Cat( void )
@@ -21,7 +22,7 @@ Cat& Cat::operator=( Cat const& rhs )
 {
 	this->type = rhs.type;
 	this->_sound = rhs._sound;
-	this->brain = rhs.brain;
+	this->brain = new Brain(*rhs.brain);
 	return *this;
 }
 
@@ -38,5 +39,5 @@ void	Cat::makeSound( void ) const
 
 void	Cat::getThought( void ) const
 {
-	brain->getIdeas();
+	LOG(brain->getIdeas());
 }

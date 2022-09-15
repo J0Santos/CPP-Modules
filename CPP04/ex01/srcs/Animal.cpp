@@ -2,11 +2,12 @@
 
 Animal::Animal( void )
 {
-	LOG("Animal created");
+	LOG("Animal default created");
 }
 
 Animal::Animal( std::string type ): type(type)
 {
+	LOG("Animal parameterized created");
 }
 
 Animal::Animal( Animal const& src )
