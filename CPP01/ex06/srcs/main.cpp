@@ -12,7 +12,7 @@ int	main(int argc, char **argv)
 		exit(EXIT_FAILURE);
 	}
 	level = argv[1];
-	for (i = 0; i <= 4; i++)
+	for (i = 0; i < 4; i++)
 	{
 		if (level.compare(harl.arr[i]) == 0)
 			break ;
@@ -21,6 +21,7 @@ int	main(int argc, char **argv)
 	{
 		default:
 			LOG("[ Probably complaining about insignificant problems ]");
+			break ;
 		case 0:
 			harl.complain(harl.arr[i++]);
 		case 1:

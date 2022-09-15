@@ -44,7 +44,7 @@ void	Harl::complain(std::string level)
 {	
 	for (int i = 0; i < 4; i++)
 	{
-		if (level.compare(arr[i]) == 0)
+		if (level.compare(this->arr[i]) == 0)
 			(this->*funcArr[i])();
 	}
 }

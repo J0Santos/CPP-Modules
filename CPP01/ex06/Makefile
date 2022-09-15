@@ -308,13 +308,13 @@ re: fclean all
 debug: CFLAGS += ${DFLAGS}
 debug: $$(call get_lib_target,$${DEFAULT_LIBS},$$@) all
 
-obj/asan/asan.o: src/asan/asan.c
+objs/asan/asan.o: srcs/asan/asan.c
 	${AT}mkdir -p ${@D} ${BLOCK}
 	${AT}${CC} -o $@ -c $< ${BLOCK}
 
 debug_asan: CFLAGS += ${DFLAGS} ${ASAN}
-debug_asan: ASAN_FILE = obj/asan/asan.o
-debug_asan: $$(call get_lib_target,$${DEFAULT_LIBS},$$@) obj/asan/asan.o all
+debug_asan: ASAN_FILE = objs/asan/asan.o
+debug_asan: $$(call get_lib_target,$${DEFAULT_LIBS},$$@) objs/asan/asan.o all
 
 debug_tsan: CFLAGS += ${DFLAGS} ${TSAN}
 debug_tsan: $$(call get_lib_target,$${DEFAULT_LIBS},$$@) all

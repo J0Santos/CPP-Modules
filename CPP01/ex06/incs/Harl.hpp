@@ -1,8 +1,10 @@
 #ifndef HARL_HPP
 # define HARL_HPP
 
-# include "string.h"
-# include "iostream"
+# include	"string.h"
+# include	"iostream"
+#include	<stdlib.h>
+
 
 # define LOG(x) std::cout << x << std::endl
 class Harl 
