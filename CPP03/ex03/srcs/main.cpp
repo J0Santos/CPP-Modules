@@ -6,6 +6,7 @@ int	main( void )
 	
 	trap.whoAmI();
 	trap.attack( "Jorge" );
+	trap.highFivesGuys();
 	trap.takeDamage(70);
 	trap.beRepaired(30);
 	trap.beRepaired(10);
@@ -16,12 +17,12 @@ int	main( void )
 	trap.beRepaired(10);
 	trap.beRepaired(10);
 	trap.beRepaired(10);
-	trap.highFivesGuys();
 	trap.beRepaired(10);
 	trap.beRepaired(10);
 	trap.beRepaired(10);
 	trap.beRepaired(10);
 	trap.beRepaired(10);
+	trap.guardGate();
 	trap.takeDamage(300);
 	trap.beRepaired(20);
 	trap.takeDamage(30);

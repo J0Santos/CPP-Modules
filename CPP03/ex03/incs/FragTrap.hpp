@@ -19,6 +19,7 @@ public:
 	FragTrap& operator=(FragTrap const& rhs);
 
 	void	highFivesGuys( void );
+	void	attack(const std::string& target);
 };
 
 #endif /* FRAGTRAP_HPP */

@@ -39,3 +39,17 @@ void	FragTrap::highFivesGuys( void )
 {
 	LOG(this->getName() << " lift its robot arms and asks for positive high fives from anyone that wants to");
 }
+
+void	FragTrap::attack(const std::string& target)
+{
+	if (this->energyPoints > 0 && this->hitPoints > 0)
+	{
+		--this->energyPoints;
+		LOG(this->name << " slaps " << target
+			<< " dealing " << this->attackDmg << "dmg");
+	}
+	else if (this->hitPoints <= 0)
+		LOG(this->name << " is dead bruv");
+	else
+		LOG(this->name << " is exhausted and cannot perform any actions");
+}
