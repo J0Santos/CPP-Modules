@@ -6,9 +6,10 @@ Dog::Dog( void ): AAnimal("Dog"), _sound("Woof woof")
 	LOG("Dog appeared");
 }
 
-Dog::Dog( Dog const& src)
+Dog::Dog( Dog const& src): AAnimal("Dog"), _sound(src._sound)
 {
-	*this = src;
+	LOG("Dog appeared");
+	this->brain = new Brain(*src.brain);
 }
 
 Dog::~Dog( void )
@@ -21,7 +22,7 @@ Dog& Dog::operator=( Dog const& rhs )
 {
 	this->type = rhs.type;
 	this->_sound = rhs._sound;
-	this->brain = rhs.brain;
+	this->brain = new Brain(*rhs.brain);
 	return *this;
 }
 
