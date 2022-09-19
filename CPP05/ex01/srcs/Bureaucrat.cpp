@@ -1,6 +1,6 @@
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat( void ): name("default")
+Bureaucrat::Bureaucrat( void )
 {
 	LOG("Bureaucrat created");
 }
@@ -37,6 +37,7 @@ Bureaucrat::~Bureaucrat( void )
 Bureaucrat&	Bureaucrat::operator=( Bureaucrat const& rhs )
 {
 	this->grade = rhs.grade;
+	static_cast<std::string>(this->name) = rhs.name;
 	return (*this);
 }
 
@@ -74,6 +75,17 @@ void	Bureaucrat::upgradeGrade( void )
 		LOG(e.what() << " Can't upgrade further: " << grade);
 	}
 }
+
+void	Bureaucrat::signForm( Form &form ) {
+	try {
+		form.beSigned(*this);
+	}
+	catch ( std::exception& e ) {
+		LOG(this->name << " couldn't sign " << form.getName() << " because " << e.what());
+	}
+	LOG(this->name << " signed " << form.getName());
+}
+
 
 std::ostream& operator<<(std::ostream& os, Bureaucrat const& obj){
 	os << obj.getName() << ", bureaucrat grade " << obj.getGrade();
