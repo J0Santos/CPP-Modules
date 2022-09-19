@@ -5,6 +5,8 @@
 # include <exception>
 # include "Form.hpp"
 
+class Form;
+
 # define LOG(x) std::cout << x << std::endl
 
 class Bureaucrat {
