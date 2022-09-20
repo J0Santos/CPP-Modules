@@ -13,14 +13,17 @@ Bureaucrat::Bureaucrat( std::string newName, int value ): name(newName)
 			throw (Bureaucrat::GradeTooLowException("Grade value too low.", value));
 		else if (value < 1)
 			throw (Bureaucrat::GradeTooHighException("Grade value is too high", value));
+		this->grade = value;
+		
 	}
 	catch (const GradeTooHighException& e) {
-		LOG(e.what() << " Value must between 1-150: " << e.grade);
+		LOG(e.what() << " Value must between 1-150. Changed to default 1: " << e.grade);
+		this->grade = 1;
 	}
 	catch (const GradeTooLowException& e) {
-		LOG(e. what() << " Value must be between 1-150: " << e.grade);
+		LOG(e. what() << " Value must be between 1-150. Changed to default 150: " << e.grade);
+		this->grade = 150;
 	}
-	this->grade = value;
 }
 
 Bureaucrat::Bureaucrat( Bureaucrat const& src )
@@ -79,11 +82,11 @@ void	Bureaucrat::upgradeGrade( void )
 void	Bureaucrat::signForm( Form &form ) {
 	try {
 		form.beSigned(*this);
+		LOG(this->name << " signed " << form.getName());
 	}
-	catch ( std::exception& e ) {
+	catch ( Form::GradeTooLowException& e ) {
 		LOG(this->name << " couldn't sign " << form.getName() << " because " << e.what());
 	}
-	LOG(this->name << " signed " << form.getName());
 }
 
 

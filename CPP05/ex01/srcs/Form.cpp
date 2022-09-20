@@ -52,7 +52,7 @@ int	Form::sanitizeGrade(int value){
 	return (value);
 }
 
-void	Form::beSigned( Bureaucrat& bureaucrat ) throw (std::exception) {
+void	Form::beSigned( Bureaucrat& bureaucrat ) {
 	if (bureaucrat.getGrade() > this->signGrade)
 		throw GradeTooLowException("Grade too low to sign form", bureaucrat.getGrade());
 	this->signStatus = true;

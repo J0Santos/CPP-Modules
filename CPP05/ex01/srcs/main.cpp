@@ -16,15 +16,24 @@ int	main( void )
 	a.upgradeGrade();
 	LOG(a.getGrade());
 	LOG(b);
+	LOG(c);
 
 	LOG("");
 	LOG("Forms:");
 	Form	n1 = Form();
 	Form	n2 = Form("B3", 180, 130);
+	Form	n3 = Form("A1", 80, 2);
 
+	LOG("");
 	LOG(n1);
 	LOG(n2);
-	n2.beSigned(a);
 	LOG(n2);
+	c.signForm(n2);
+	LOG(n3);
+	c.signForm(n3);
+	b.signForm(n3);
+	LOG(n3);
+
+
 
 }

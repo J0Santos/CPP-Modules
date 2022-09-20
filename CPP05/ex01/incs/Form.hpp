@@ -32,7 +32,7 @@ public:
 	int			getExecGrade() const;
 
 	int		sanitizeGrade(int value);
-	void	beSigned( Bureaucrat& b ) throw (std::exception);
+	void	beSigned( Bureaucrat& b );
 
 	class GradeTooHighException : public std::invalid_argument {
 	

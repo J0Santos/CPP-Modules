@@ -85,7 +85,7 @@ LANG := C++
 ifeq (${LANG},C)
 	CC := clang
 else ifeq (${LANG},C++)
-	CC := clang++
+	CC := c++
 endif
 
 # Compiler flags
