@@ -28,6 +28,7 @@ public:
 	void		upgradeGrade();
 	void		downgradeGrade();
 	void		signForm( AForm &form );
+	void		executeForm(AForm const& form);
 
 	
 	class GradeTooHighException : public std::invalid_argument {

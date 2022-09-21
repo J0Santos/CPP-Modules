@@ -79,13 +79,23 @@ void	Bureaucrat::upgradeGrade( void )
 	}
 }
 
-void	Bureaucrat::signForm( Form &form ) {
+void	Bureaucrat::signForm( AForm &form ) {
 	try {
 		form.beSigned(*this);
 		LOG(this->name << " signed " << form.getName());
 	}
-	catch ( Form::GradeTooLowException& e ) {
+	catch ( AForm::GradeTooLowException& e ) {
 		LOG(this->name << " couldn't sign " << form.getName() << " because " << e.what());
+	}
+}
+
+void	Bureaucrat::executeForm(AForm const& form) {
+	try {
+		form.execute(*this);
+		LOG(this->name << " executed " << form.getName());
+	}
+	catch (AForm::GradeTooLowException& e) {
+		LOG(this->name << " couldn't execute form " << form.getName() << " because " << e.what());
 	}
 }
 
