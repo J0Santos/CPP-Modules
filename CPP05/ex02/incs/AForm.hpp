@@ -53,6 +53,14 @@ public:
 		{
 		}
 	};
+
+	class FormNotSignedException : public std::invalid_argument {
+
+	public:
+		FormNotSignedException( const char* what): std::invalid_argument(what)
+		{
+		}
+	};
 };
 
 std::ostream& operator<<(std::ostream &os, AForm const& form);

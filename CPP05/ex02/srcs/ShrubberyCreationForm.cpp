@@ -38,6 +38,8 @@ void	ShrubberyCreationForm::execute( Bureaucrat const& executor ) const {
 
 	if (executor.getGrade() > this->getExecGrade())
 		throw GradeTooLowException("Grade too low to execute form", executor.getGrade());
+	else if (this->getSignStatus() == false)
+		throw FormNotSignedException(" hasn't been signed yet");
 	std::string fileName = this->target + "_shrubbery";
 	std::ofstream file(fileName.c_str(), std::ios::app);
 	file << std::endl <<

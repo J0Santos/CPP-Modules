@@ -2,12 +2,12 @@
 
 RobotomyRequestForm::RobotomyRequestForm( void ): AForm("Robotomy Request Form", 72, 45)
 {
-	LOG("Created shrubbery form");
+	LOG("Created Robotomy form");
 }
 
 RobotomyRequestForm::RobotomyRequestForm( std::string destination ): AForm("Robotomy Request Form", 72, 45), target(destination)
 {
-	LOG("Created shrubbery form to " << target);
+	LOG("Created Robotomy form to " << target);
 }
 
 RobotomyRequestForm::RobotomyRequestForm( RobotomyRequestForm const& src )
@@ -38,9 +38,13 @@ void	RobotomyRequestForm::execute( Bureaucrat const& executor ) const {
 
 	if (executor.getGrade() > this->getExecGrade())
 		throw GradeTooLowException("Grade too low to execute form", executor.getGrade());
+	else if (this->getSignStatus() == false)
+		throw FormNotSignedException(" hasn't been signed yet");
+	LOG("BRZZZZZZZZZZZ BRZZZ BRZZZZZZZZ *some drilling noises*");
 	srand(time(NULL));
 	int happens = std::rand() % 2;
-	LOG(happens);
-	LOG("BRZZZZZZZZZZZ BRZZZ BRZZZZZZZZ *some drilling noises*");
-	
+	if (happens == 0)
+		LOG(this->target << " has been robotomized successfully!");
+	else
+		LOG("Robotomization of target " << this->target << " failed");
 }
