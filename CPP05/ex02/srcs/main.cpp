@@ -1,6 +1,7 @@
 # include "Bureaucrat.hpp"
 # include "AForm.hpp"
 # include "ShrubberyCreationForm.hpp"
+# include "RobotomyRequestForm.hpp"
 
 int	main( void )
 {
@@ -23,14 +24,16 @@ int	main( void )
 	LOG("Forms:");
 	
 	ShrubberyCreationForm s1 = ShrubberyCreationForm("house");
+	RobotomyRequestForm r1 = RobotomyRequestForm("Sara");
+
 	// AForm	n1 = AForm();
 	// AForm	n2 = AForm("B3", 180, 130);
 	// AForm	n3 = AForm("A1", 80, 2);
 
-	b.signForm(s1);
-	b.executeForm(s1);
-	a.signForm(s1);
-	a.executeForm(s1);
+	b.signForm(r1);
+	b.executeForm(r1);
+	a.signForm(r1);
+	a.executeForm(r1);
 	// LOG("");
 	// LOG(n1);
 	// LOG(n2);
