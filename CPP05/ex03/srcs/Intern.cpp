@@ -50,7 +50,7 @@ AForm*	Intern::makeForm(std::string formName, std::string target)
 		if (i == 3)
 			throw FormDoesntExistException("Form name doesn't exist");
 		LOG("Intern creates " << formName);
-		return (this->*formArr[i])(target);
+		return ((this->*formArr[i])(target));
 	}
 	catch (FormDoesntExistException& e) {
 		LOG(e.what());
