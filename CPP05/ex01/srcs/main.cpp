@@ -26,9 +26,6 @@ int	main( void )
 
 	LOG("");
 	LOG(n1);
-	LOG(n2);
-	LOG(n2);
-	c.signForm(n2);
 	LOG(n3);
 	c.signForm(n3);
 	b.signForm(n3);

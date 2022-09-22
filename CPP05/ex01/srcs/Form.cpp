@@ -2,20 +2,22 @@
 
 Form::Form( void ): name("default"), signStatus(false), signGrade(150), execGrade(150)
 {
-	LOG("Form created");
+	LOG("Form created " << this->name);
 }
 
 Form::Form( std::string newName, int signValue, int execValue ): name(newName), signGrade(sanitizeGrade(signValue)), execGrade(sanitizeGrade(execValue))
 {
 	this->signStatus = false;
+	LOG("Form created " << this->name);
 }
+
 Form::Form( Form const& src ):name(src.name), signStatus(src.signStatus), signGrade(src.signGrade), execGrade(src.execGrade)
 {
 }
 
 Form::~Form( void )
 {
-	LOG("Form deleted");
+	LOG(this->name << " deleted");
 }
 
 std::string	Form::getName( void ) const {
