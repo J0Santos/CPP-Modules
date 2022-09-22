@@ -6,13 +6,14 @@ int	main( void )
 	Bureaucrat b = Bureaucrat("Jorge", 1);
 	Bureaucrat c = Bureaucrat("Andreia", 189);
 
-	b.upgradeGrade();
-	LOG(a.getGrade());
-	LOG(a.getName());
-	a.downgradeGrade();
-	LOG(a.getGrade());
-	a.upgradeGrade();
-	LOG(a.getGrade());
+	LOG(c);
 	LOG(b);
+	// b.upgradeGrade();
+	// LOG(a.getGrade());
+	// LOG(a.getName());
+	// a.downgradeGrade();
+	// LOG(a.getGrade());
+	// a.upgradeGrade();
+	// LOG(a.getGrade());
 
 }

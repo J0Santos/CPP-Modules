@@ -1,6 +1,6 @@
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat( void ): name("default")
+Bureaucrat::Bureaucrat( void ): name("default"), grade(150)
 {
 	LOG("Bureaucrat created");
 }
@@ -10,9 +10,16 @@ Bureaucrat::Bureaucrat( std::string newName, int value ): name(newName)
 	LOG("Bureaucrat shows up");
 	try {
 		if (value > 150)
-			throw (Bureaucrat::GradeTooLowException("Grade value too low.", value));
+		{
+			this->grade = 150;
+			throw (Bureaucrat::GradeTooLowException("Grade value too low. Changed to default 150", value));
+		}
 		else if (value < 1)
-			throw (Bureaucrat::GradeTooHighException("Grade value is too high", value));
+		{
+			this->grade = 1;
+			throw (Bureaucrat::GradeTooHighException("Grade value is too high. Changed to default value 1", value));
+		}
+		this->grade = value;
 	}
 	catch (const GradeTooHighException& e) {
 		LOG(e.what() << " Value must between 1-150: " << e.grade);
@@ -20,7 +27,6 @@ Bureaucrat::Bureaucrat( std::string newName, int value ): name(newName)
 	catch (const GradeTooLowException& e) {
 		LOG(e. what() << " Value must be between 1-150: " << e.grade);
 	}
-	this->grade = value;
 }
 
 Bureaucrat::Bureaucrat( Bureaucrat const& src )
