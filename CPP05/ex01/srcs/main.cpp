@@ -23,6 +23,8 @@ int	main( void )
 	Form	n1 = Form();
 	Form	n2 = Form("B3", 180, 130);
 	Form	n3 = Form("A1", 80, 2);
+	Form	t1;
+
 
 	LOG("");
 	LOG(n1);
@@ -30,6 +32,8 @@ int	main( void )
 	c.signForm(n3);
 	b.signForm(n3);
 	LOG(n3);
+	t1 = n3;
+	LOG("t1: " << t1);
 
 
 

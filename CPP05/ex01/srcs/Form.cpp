@@ -36,19 +36,27 @@ int	Form::getExecGrade( void ) const {
 	return this->execGrade;
 }
 
+const char*	Form::GradeTooHighException::what(void) const throw() {
+	return("Grade too high");
+}
+
+const char*	Form::GradeTooLowException::what(void) const throw() {
+	return("Grade too low");
+}
+
 int	Form::sanitizeGrade(int value){
 	try {
 		if (value > 150)
-			throw GradeTooLowException("Grade too low, changed to default 150", value);
+			throw GradeTooLowException();
 		else if (value < 1)
-			throw GradeTooHighException("Grade to high, changed to default 1", value);
+			throw GradeTooHighException();
 	}
 	catch (const GradeTooLowException& e) {
-		LOG(e.what());
+		LOG(e.what() << "Changed to default 150");
 		return (150);
 	}
 	catch (const GradeTooHighException& e) {
-		LOG(e.what());
+		LOG(e.what() << "Changed to default 1");
 		return (1);
 	}
 	return (value);
@@ -56,12 +64,15 @@ int	Form::sanitizeGrade(int value){
 
 void	Form::beSigned( Bureaucrat& bureaucrat ) {
 	if (bureaucrat.getGrade() > this->signGrade)
-		throw GradeTooLowException("Grade too low to sign form", bureaucrat.getGrade());
+		throw GradeTooLowException();
 	this->signStatus = true;
 }
 
 Form&	Form::operator=( Form const& rhs )
 {
+	const_cast<std::string&>(this->name) = rhs.name;
+	*const_cast<int*>(&(this->signGrade)) = rhs.signGrade;
+	*const_cast<int*>(&(this->execGrade)) = rhs.execGrade;
 	this->signStatus = rhs.signStatus;
 	return *this;
 }

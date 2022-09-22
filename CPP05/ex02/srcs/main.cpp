@@ -28,6 +28,12 @@ int	main( void )
 	RobotomyRequestForm r1 = RobotomyRequestForm("Sara");
 	PresidentialPardonForm p1 = PresidentialPardonForm("Sara");
 	PresidentialPardonForm p2 = PresidentialPardonForm("Balelas");
+	PresidentialPardonForm test;
+
+	test = p2;
+
+	LOG("");
+	LOG("p2: " << p2);
 
 	// AForm	n1 = AForm();
 	// AForm	n2 = AForm("B3", 180, 130);
@@ -37,6 +43,7 @@ int	main( void )
 	// b.executeForm(r1);
 	// a.signForm(r1);
 	// a.executeForm(r1);
+	LOG("");
 
 	b.executeForm(p1);
 	b.signForm(p1);

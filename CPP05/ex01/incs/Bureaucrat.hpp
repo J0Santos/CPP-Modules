@@ -30,22 +30,12 @@ public:
 	void		signForm( Form &form );
 
 	
-	class GradeTooHighException : public std::invalid_argument {
-	
-	public:
-		int grade;
-		GradeTooHighException(const char* what, int value): std::invalid_argument(what), grade(value)
-		{
-		}
+	struct GradeTooHighException : public std::exception {
+		const char* what() const throw();
 	};
 	
-	class GradeTooLowException : public std::invalid_argument {
-
-	public:
-		int grade;
-		GradeTooLowException( const char* what, int value ): std::invalid_argument(what), grade(value)
-		{
-		}
+	struct GradeTooLowException : public std::exception {
+		const char* what() const throw();
 	};
 
 };

@@ -12,20 +12,20 @@ Bureaucrat::Bureaucrat( std::string newName, int value ): name(newName)
 		if (value > 150)
 		{
 			this->grade = 150;
-			throw (Bureaucrat::GradeTooLowException("Grade value too low. Changed to default 150", value));
+			throw (Bureaucrat::GradeTooLowException());
 		}
 		else if (value < 1)
 		{
 			this->grade = 1;
-			throw (Bureaucrat::GradeTooHighException("Grade value is too high. Changed to default value 1", value));
+			throw (Bureaucrat::GradeTooHighException());
 		}
 		this->grade = value;
 	}
 	catch (const GradeTooHighException& e) {
-		LOG(e.what() << " Value must between 1-150: " << e.grade);
+		LOG(e.what() << "Changed to default value 1");
 	}
 	catch (const GradeTooLowException& e) {
-		LOG(e. what() << " Value must be between 1-150: " << e.grade);
+		LOG(e. what() << " Changed to default 150.");
 	}
 }
 
@@ -43,6 +43,7 @@ Bureaucrat::~Bureaucrat( void )
 Bureaucrat&	Bureaucrat::operator=( Bureaucrat const& rhs )
 {
 	this->grade = rhs.grade;
+	const_cast<std::string&>(this->name) = rhs.name;
 	return (*this);
 }
 
@@ -56,15 +57,23 @@ std::string Bureaucrat::getName( void ) const
 	return this->name;
 }
 
+const char*	Bureaucrat::GradeTooHighException::what(void) const throw() {
+	return("Grade too high");
+}
+
+const char*	Bureaucrat::GradeTooLowException::what(void) const throw() {
+	return("Grade too low");
+}
+
 void	Bureaucrat::downgradeGrade( void )
 {
 	try {
 		if (grade == 150)
-			throw (Bureaucrat::GradeTooLowException("Grade value is already the lowest possible: 150.", grade));
+			throw (Bureaucrat::GradeTooLowException());
 		this->grade++;
 	}
 	catch (const GradeTooLowException& e) {
-		LOG(e.what() << " Can't downgrade further: " << e.grade);
+		LOG(e.what() << " Can't downgrade further: ");
 	}
 
 }
@@ -73,11 +82,11 @@ void	Bureaucrat::upgradeGrade( void )
 {
 	try {
 		if (grade == 1)
-				throw (Bureaucrat::GradeTooHighException("Grade value is already the highest possible.", grade));
+				throw (Bureaucrat::GradeTooHighException());
 		this->grade--;
 		}
 	catch (const GradeTooHighException& e) {
-		LOG(e.what() << " Can't upgrade further: " << grade);
+		LOG(e.what() << " Can't upgrade further: ");
 	}
 }
 

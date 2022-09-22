@@ -10,8 +10,13 @@ int	main( void )
 
 	Intern	i;
 
-	i.makeForm("sdfs", "bajoras");
-	i.makeForm("Shrubbery Creation Form", "balelas");
+	AForm* a = i.makeForm("sdfs", "bajoras");
+	AForm *b = i.makeForm("Shrubbery Creation Form", "balelas");
+
+	LOG(*a);
+	delete a;
+	LOG(*b);
+	delete b;
 
 	// LOG("Bureaucrats:");
 	// Bureaucrat a = Bureaucrat("Carlos", 143);

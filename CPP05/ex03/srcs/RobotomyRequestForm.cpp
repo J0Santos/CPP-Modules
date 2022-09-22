@@ -30,16 +30,16 @@ RobotomyRequestForm&	RobotomyRequestForm::operator=( RobotomyRequestForm const& 
 void	RobotomyRequestForm::beSigned( Bureaucrat& b )
 {
 	if (b.getGrade() > this->getSignGrade())
-		throw GradeTooLowException("Grade too low to sign form", b.getGrade());
+		throw GradeTooLowException();
 	this->setSignStatus(true);
 }
 
 void	RobotomyRequestForm::execute( Bureaucrat const& executor ) const {
 
 	if (executor.getGrade() > this->getExecGrade())
-		throw GradeTooLowException("Grade too low to execute form", executor.getGrade());
+		throw GradeTooLowException();
 	else if (this->getSignStatus() == false)
-		throw FormNotSignedException(" hasn't been signed yet");
+		throw FormNotSignedException();
 	LOG("BRZZZZZZZZZZZ BRZZZ BRZZZZZZZZ *some drilling noises*");
 	srand(time(NULL));
 	int happens = std::rand() % 2;

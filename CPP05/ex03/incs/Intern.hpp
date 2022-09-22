@@ -26,12 +26,8 @@ public:
 
 	AForm*	makeForm(std::string formName, std::string target); 
 
-	class FormDoesntExistException: public std::invalid_argument {
-
-	public:
-		FormDoesntExistException(const char* what): std::invalid_argument(what)
-		{
-		}
+	struct FormDoesntExistException : public std::exception {
+		const char* what() const throw();
 	};
 };
 

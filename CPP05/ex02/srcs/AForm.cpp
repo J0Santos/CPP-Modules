@@ -38,19 +38,31 @@ void	AForm::setSignStatus( bool value ) {
 	this->signStatus = value;
 }
 
+const char*	AForm::GradeTooHighException::what(void) const throw() {
+	return("Grade too high");
+}
+
+const char*	AForm::GradeTooLowException::what(void) const throw() {
+	return("Grade too low");
+}
+
+const char*	AForm::FormNotSignedException::what(void) const throw() {
+	return(" has not been signed");
+}
+
 int	AForm::sanitizeGrade(int value){
 	try {
 		if (value > 150)
-			throw GradeTooLowException("Grade too low, changed to default 150", value);
+			throw GradeTooLowException();
 		else if (value < 1)
-			throw GradeTooHighException("Grade to high, changed to default 1", value);
+			throw GradeTooHighException();
 	}
 	catch (const GradeTooLowException& e) {
-		LOG(e.what());
+		LOG(e.what() << "Changed to default 150");
 		return (150);
 	}
 	catch (const GradeTooHighException& e) {
-		LOG(e.what());
+		LOG(e.what() << "Changed to default 1");
 		return (1);
 	}
 	return (value);
@@ -64,6 +76,9 @@ int	AForm::sanitizeGrade(int value){
 
 AForm&	AForm::operator=( AForm const& rhs )
 {
+	const_cast<std::string&>(this->name) = rhs.name;
+	*const_cast<int*>(&(this->signGrade)) = rhs.signGrade;
+	*const_cast<int*>(&(this->execGrade)) = rhs.execGrade;
 	this->signStatus = rhs.signStatus;
 	return *this;
 }

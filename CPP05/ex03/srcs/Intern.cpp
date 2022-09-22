@@ -37,6 +37,10 @@ AForm*	Intern::makePardonForm(std::string target) {
 	return (new	PresidentialPardonForm(target));
 }
 
+const char*	Intern::FormDoesntExistException::what(void) const throw() {
+	return("Form doesn't exist");
+}
+
 AForm*	Intern::makeForm(std::string formName, std::string target)
 {
 	const char* names[3] = {"Shrubbery Creation Form", "Robotomy Request Form", "Presidential Pardon Form"};
@@ -48,7 +52,7 @@ AForm*	Intern::makeForm(std::string formName, std::string target)
 	}
 	try {
 		if (i == 3)
-			throw FormDoesntExistException("Form name doesn't exist");
+			throw FormDoesntExistException();
 		LOG("Intern creates " << formName);
 		return ((this->*formArr[i])(target));
 	}
