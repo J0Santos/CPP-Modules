@@ -11,15 +11,15 @@ int	main( void )
 	Bureaucrat b = Bureaucrat("Jorge", 1);
 	Bureaucrat c = Bureaucrat("Andreia", 189);
 
-	b.upgradeGrade();
-	LOG(a.getGrade());
-	LOG(a.getName());
-	a.downgradeGrade();
-	LOG(a.getGrade());
-	a.upgradeGrade();
-	LOG(a.getGrade());
-	LOG(b);
-	LOG(c);
+	// b.upgradeGrade();
+	// LOG(a.getGrade());
+	// LOG(a.getName());
+	// a.downgradeGrade();
+	// LOG(a.getGrade());
+	// a.upgradeGrade();
+	// LOG(a.getGrade());
+	// LOG(b);
+	// LOG(c);
 
 	LOG("");
 	LOG("Forms:");
@@ -27,6 +27,7 @@ int	main( void )
 	ShrubberyCreationForm s1 = ShrubberyCreationForm("house");
 	RobotomyRequestForm r1 = RobotomyRequestForm("Sara");
 	PresidentialPardonForm p1 = PresidentialPardonForm("Sara");
+	PresidentialPardonForm p2 = PresidentialPardonForm("Balelas");
 
 	// AForm	n1 = AForm();
 	// AForm	n2 = AForm("B3", 180, 130);
@@ -36,9 +37,12 @@ int	main( void )
 	// b.executeForm(r1);
 	// a.signForm(r1);
 	// a.executeForm(r1);
+
 	b.executeForm(p1);
 	b.signForm(p1);
 	b.executeForm(p1);
+	b.signForm(p2);
+	c.executeForm(p2);
 
 	// LOG("");
 	// LOG(n1);
