@@ -20,7 +20,7 @@ public:
 
 	PresidentialPardonForm	&operator=( PresidentialPardonForm const& rhs ); /* Copy assignment operator */
 
-	void	beSigned( Bureaucrat& b );
+	// void	beSigned( Bureaucrat& b );
 	void	execute( Bureaucrat const& executor ) const;
 
 };

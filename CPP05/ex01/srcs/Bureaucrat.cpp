@@ -62,7 +62,6 @@ void	Bureaucrat::downgradeGrade( void )
 	catch (const GradeTooLowException& e) {
 		LOG(e.what() << " Can't downgrade further");
 	}
-
 }
 
 void	Bureaucrat::upgradeGrade( void )
@@ -90,7 +89,6 @@ void	Bureaucrat::signForm( Form &form ) {
 		LOG(this->name << " couldn't sign " << form.getName() << " because form is " << e.what());
 	}
 }
-
 
 std::ostream& operator<<(std::ostream& os, Bureaucrat const& obj){
 	os << obj.getName() << ", bureaucrat grade " << obj.getGrade();

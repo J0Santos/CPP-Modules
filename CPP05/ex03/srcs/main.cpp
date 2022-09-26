@@ -13,9 +13,16 @@ int	main( void )
 	AForm* a = i.makeForm("sdfs", "bajoras");
 	AForm* b = i.makeForm("Shrubbery Creation Form", "balelas");
 
-	LOG(*a);
-	delete a;
+	if (a)
+	{
+		LOG(*a);
+		delete a;
+	}
 	LOG(*b);
+	Bureaucrat	b1("Jorge", 1);
+	b1.executeForm(*b);
+	b1.signForm(*b);
+	b1.executeForm(*b);
 	delete b;
 
 	// LOG("Bureaucrats:");

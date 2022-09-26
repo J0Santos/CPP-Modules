@@ -27,12 +27,12 @@ PresidentialPardonForm&	PresidentialPardonForm::operator=( PresidentialPardonFor
 	return (*this);
 }
 
-void	PresidentialPardonForm::beSigned( Bureaucrat& b )
-{
-	if (b.getGrade() > this->getSignGrade())
-		throw GradeTooLowException();
-	this->setSignStatus(true);
-}
+// void	PresidentialPardonForm::beSigned( Bureaucrat& b )
+// {
+// 	if (b.getGrade() > this->getSignGrade())
+// 		throw GradeTooLowException();
+// 	this->setSignStatus(true);
+// }
 
 void	PresidentialPardonForm::execute( Bureaucrat const& executor ) const {
 

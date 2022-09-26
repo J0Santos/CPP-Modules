@@ -50,6 +50,10 @@ const char*	AForm::FormNotSignedException::what(void) const throw() {
 	return(" has not been signed");
 }
 
+const char*	AForm::AlreadySignedException::what(void) const throw() {
+	return(" already has a signature");
+}
+
 int	AForm::sanitizeGrade(int value){
 	try {
 		if (value > 150)
@@ -68,11 +72,13 @@ int	AForm::sanitizeGrade(int value){
 	return (value);
 }
 
-// void	Form::beSigned( Bureaucrat& bureaucrat ) {
-// 	if (bureaucrat.getGrade() > this->signGrade)
-// 		throw GradeTooLowException("Grade too low to sign form", bureaucrat.getGrade());
-// 	this->signStatus = true;
-// }
+void	AForm::beSigned( Bureaucrat& b ) {
+	if (b.getGrade() > this->signGrade)
+		throw GradeTooLowException();
+	else if (this->getSignStatus() == true)
+		throw AlreadySignedException();
+	this->signStatus = true;
+}
 
 AForm&	AForm::operator=( AForm const& rhs )
 {

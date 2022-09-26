@@ -27,12 +27,12 @@ RobotomyRequestForm&	RobotomyRequestForm::operator=( RobotomyRequestForm const& 
 	return (*this);
 }
 
-void	RobotomyRequestForm::beSigned( Bureaucrat& b )
-{
-	if (b.getGrade() > this->getSignGrade())
-		throw GradeTooLowException();
-	this->setSignStatus(true);
-}
+// void	RobotomyRequestForm::beSigned( Bureaucrat& b )
+// {
+// 	if (b.getGrade() > this->getSignGrade())
+// 		throw GradeTooLowException();
+// 	this->setSignStatus(true);
+// }
 
 void	RobotomyRequestForm::execute( Bureaucrat const& executor ) const {
 

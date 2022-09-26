@@ -33,7 +33,7 @@ public:
 	void		setSignStatus(bool value);
 
 	int		sanitizeGrade(int value);
-	virtual void	beSigned( Bureaucrat& b ) = 0;
+	virtual void	beSigned( Bureaucrat& b );
 	virtual void	execute( Bureaucrat const& executor ) const = 0;
 
 	struct GradeTooHighException : public std::exception {
@@ -45,6 +45,10 @@ public:
 	};
 
 	struct FormNotSignedException : public std::exception {
+		const char* what() const throw();
+	};
+
+	struct AlreadySignedException : public std::exception {
 		const char* what() const throw();
 	};
 };

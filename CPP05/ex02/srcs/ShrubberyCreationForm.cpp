@@ -27,12 +27,12 @@ ShrubberyCreationForm&	ShrubberyCreationForm::operator=( ShrubberyCreationForm c
 	return (*this);
 }
 
-void	ShrubberyCreationForm::beSigned( Bureaucrat& b )
-{
-	if (b.getGrade() > this->getSignGrade())
-		throw GradeTooLowException();
-	this->setSignStatus(true);
-}
+// void	ShrubberyCreationForm::beSigned( Bureaucrat& b )
+// {
+// 	if (b.getGrade() > this->getSignGrade())
+// 		throw GradeTooLowException();
+// 	this->setSignStatus(true);
+// }
 
 void	ShrubberyCreationForm::execute( Bureaucrat const& executor ) const {
 

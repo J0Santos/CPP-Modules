@@ -94,6 +94,9 @@ void	Bureaucrat::signForm( AForm &form ) {
 	catch ( AForm::GradeTooLowException& e ) {
 		LOG(this->name << " couldn't sign " << form.getName() << " because " << e.what());
 	}
+	catch (AForm::AlreadySignedException& e) {
+		LOG(this->name << " couldn't sign " << form.getName() << " because form" << e.what());
+	}
 }
 
 void	Bureaucrat::executeForm(AForm const& form) {

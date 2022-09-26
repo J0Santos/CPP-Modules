@@ -7,37 +7,29 @@ Bureaucrat::Bureaucrat( void ): name("default"), grade(150)
 
 Bureaucrat::Bureaucrat( std::string newName, int value ): name(newName)
 {
-	LOG("Bureaucrat shows up");
-	try {
-		if (value > 150)
-		{
-			this->grade = 150;
-			throw (Bureaucrat::GradeTooLowException());
-		}
-		else if (value < 1)
-		{
-			this->grade = 1;
-			throw (Bureaucrat::GradeTooHighException());
-		}
-		this->grade = value;
+	LOG("Bureaucrat " << this->name << " shows up");
+	if (value > 150)
+	{
+		this->grade = 150;
+		throw (Bureaucrat::GradeTooLowException());
 	}
-	catch (const GradeTooHighException& e) {
-		LOG(e.what() << "Changed to default value 1");
+	else if (value < 1)
+	{
+		this->grade = 1;
+		throw (Bureaucrat::GradeTooHighException());
 	}
-	catch (const GradeTooLowException& e) {
-		LOG(e. what() << " Changed to default 150.");
-	}
+	this->grade = value;
 }
 
 Bureaucrat::Bureaucrat( Bureaucrat const& src )
 {
-	LOG("Bureaucrat created");
+	LOG("Copy constructor called");
 	*this = src;
 }
 
 Bureaucrat::~Bureaucrat( void )
 {
-	LOG("Bureaucrat gone");
+	LOG("Bureaucrat " << this->name << " gone");
 }
 
 Bureaucrat&	Bureaucrat::operator=( Bureaucrat const& rhs )
@@ -67,27 +59,18 @@ const char*	Bureaucrat::GradeTooLowException::what(void) const throw() {
 
 void	Bureaucrat::downgradeGrade( void )
 {
-	try {
-		if (grade == 150)
-			throw (Bureaucrat::GradeTooLowException());
-		this->grade++;
-	}
-	catch (const GradeTooLowException& e) {
-		LOG(e.what() << " Can't downgrade further: ");
-	}
-
+	if (grade == 150)
+		throw (Bureaucrat::GradeTooLowException());
+	this->grade++;
+	LOG("Downgrade successful");
 }
 
 void	Bureaucrat::upgradeGrade( void )
 {
-	try {
-		if (grade == 1)
-				throw (Bureaucrat::GradeTooHighException());
-		this->grade--;
-		}
-	catch (const GradeTooHighException& e) {
-		LOG(e.what() << " Can't upgrade further: ");
-	}
+	if (grade == 1)
+			throw (Bureaucrat::GradeTooHighException());
+	this->grade--;
+	LOG("Upgrade successful");
 }
 
 std::ostream& operator<<(std::ostream& os, Bureaucrat const& obj){
