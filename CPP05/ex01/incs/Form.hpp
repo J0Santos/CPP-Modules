@@ -41,6 +41,10 @@ public:
 	struct GradeTooLowException : public std::exception {
 		const char* what() const throw();
 	};
+
+	struct AlreadySignedException : public std::exception {
+		const char* what() const throw();
+	};
 };
 
 std::ostream& operator<<(std::ostream &os, Form const& form);

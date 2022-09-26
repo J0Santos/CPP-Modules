@@ -11,7 +11,7 @@ int	main( void )
 	Intern	i;
 
 	AForm* a = i.makeForm("sdfs", "bajoras");
-	AForm *b = i.makeForm("Shrubbery Creation Form", "balelas");
+	AForm* b = i.makeForm("Shrubbery Creation Form", "balelas");
 
 	LOG(*a);
 	delete a;

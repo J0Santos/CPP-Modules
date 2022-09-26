@@ -37,11 +37,15 @@ int	Form::getExecGrade( void ) const {
 }
 
 const char*	Form::GradeTooHighException::what(void) const throw() {
-	return("Grade too high");
+	return("Grade too high. ");
 }
 
 const char*	Form::GradeTooLowException::what(void) const throw() {
-	return("Grade too low");
+	return("Grade too low. ");
+}
+
+const char* Form::AlreadySignedException::what(void) const throw() {
+	return ("already signed");
 }
 
 int	Form::sanitizeGrade(int value){
@@ -65,6 +69,8 @@ int	Form::sanitizeGrade(int value){
 void	Form::beSigned( Bureaucrat& bureaucrat ) {
 	if (bureaucrat.getGrade() > this->signGrade)
 		throw GradeTooLowException();
+	else if (this->getSignStatus() == true)
+		throw AlreadySignedException();
 	this->signStatus = true;
 }
 

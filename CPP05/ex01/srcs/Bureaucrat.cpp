@@ -8,22 +8,11 @@ Bureaucrat::Bureaucrat( void )
 Bureaucrat::Bureaucrat( std::string newName, int value ): name(newName)
 {
 	LOG("Bureaucrat shows up");
-	try {
-		if (value > 150)
-			throw (Bureaucrat::GradeTooLowException());
-		else if (value < 1)
-			throw (Bureaucrat::GradeTooHighException());
-		this->grade = value;
-		
-	}
-	catch (const GradeTooHighException& e) {
-		LOG(e.what() << " Value must between 1-150. Changed to default 1");
-		this->grade = 1;
-	}
-	catch (const GradeTooLowException& e) {
-		LOG(e. what() << " Value must be between 1-150. Changed to default 150");
-		this->grade = 150;
-	}
+	if (value > 150)
+		throw (Bureaucrat::GradeTooLowException());
+	else if (value < 1)
+		throw (Bureaucrat::GradeTooHighException());
+	this->grade = value;
 }
 
 Bureaucrat::Bureaucrat( Bureaucrat const& src )
@@ -68,6 +57,7 @@ void	Bureaucrat::downgradeGrade( void )
 		if (grade == 150)
 			throw (Bureaucrat::GradeTooLowException());
 		this->grade++;
+		LOG("Downgrade successful");
 	}
 	catch (const GradeTooLowException& e) {
 		LOG(e.what() << " Can't downgrade further");
@@ -81,6 +71,7 @@ void	Bureaucrat::upgradeGrade( void )
 		if (grade == 1)
 				throw (Bureaucrat::GradeTooHighException());
 		this->grade--;
+		LOG("Upgrade successful");
 		}
 	catch (const GradeTooHighException& e) {
 		LOG(e.what() << " Can't upgrade further");
@@ -94,6 +85,9 @@ void	Bureaucrat::signForm( Form &form ) {
 	}
 	catch ( Form::GradeTooLowException& e ) {
 		LOG(this->name << " couldn't sign " << form.getName() << " because " << e.what());
+	}
+	catch (Form::AlreadySignedException& e) {
+		LOG(this->name << " couldn't sign " << form.getName() << " because form is " << e.what());
 	}
 }
 
