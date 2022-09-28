@@ -4,15 +4,12 @@ Convert::Convert( void ) {
 	LOG(RED << "WARNING: " << "with default constructor, all member variables are not initialized!" << RESET);
 }
 
-Convert::Convert(char* val) {
-	this->type = this->parseVal(val);
-}
-
 Convert::Convert( char charToConvert ) {
 	this->convertedChar = charToConvert;
 	this->convertedInt = charToConvert - '0';
 	this->convertedFloat = static_cast<float>(charToConvert) - '0';
 	this->convertedDouble = static_cast<double>(charToConvert) - '0';
+	displayChar(charToConvert);
 }
 
 Convert::Convert( int intToConvert ) {
@@ -20,6 +17,7 @@ Convert::Convert( int intToConvert ) {
 	this->convertedInt = intToConvert;
 	this->convertedFloat = static_cast<float>(intToConvert);
 	this->convertedDouble = static_cast<double>(intToConvert);
+	displayInt(intToConvert);
 }
 
 Convert::Convert( float floatToConvert ) {
@@ -29,6 +27,17 @@ Convert::Convert( float floatToConvert ) {
 	this->convertedInt = static_cast<int>(floatToConvert);
 	this->convertedFloat = floatToConvert;
 	this->convertedDouble = static_cast<double>(floatToConvert);
+	displayFloat(floatToConvert);
+}
+
+Convert::Convert( double doubleToConvert ) {
+
+
+	this->convertedChar = doubleToConvert;
+	this->convertedInt = static_cast<int>(doubleToConvert);
+	this->convertedFloat = static_cast<double>(doubleToConvert);
+	this->convertedDouble = doubleToConvert;
+	displayDouble(doubleToConvert);
 }
 
 Convert::Convert( Convert const& src ) {
@@ -62,54 +71,58 @@ Convert&	Convert::operator=( Convert const& rhs ) {
 	return (*this);
 }
 
-int	Convert::parseVal(char *str) {
-	std::string s(str);
-	size_t i;
-
-	/* Check pseudo literals */
-	if (s.compare("-inff") == 0 || s.compare("+inff") == 0 || s.compare("inff") == 0
-		|| s.compare("nanf") == 0)
-		{
-			pseudoLiteralFloat(s);
-			return (0);
-		}
-	else if (s.compare("-inf") == 0 || s.compare("+inf") == 0 | s.compare("inf") == 0
-		|| s.compare("nan") == 0)
-		{
-			pseudoLiteralDouble(s);
-			return (0);
-		}
-	/* Check literals */
-	for (i = 0; i < strlen(str); i++) {
-		if ((str[i] == '+' || str[i] == '-') && i == 0)
-			continue ;
-		if (isdigit(str[i]) == 0 && i == 0 )
-			return (CHAR);
-	}
-	for (i = 0; i < strlen(str); i++) {
-		if (str[strlen(str) - 1] == 'f')
-			return (FLOAT);
-		else if (str[i] == '.')
-			return (DOUBLE);
-	}
-	return (INT);
+void	Convert::displayChar(char a) {
+	LOG("Converted values are:");
+	LOG("\tChar-> " << a);
+	LOG("\tInt-> " << this->convertedInt);
+	LOG("\tFloat-> " << std::fixed << std::setprecision(1) << this->convertedFloat << "f");
+	LOG("\tDouble-> " << this->convertedDouble);
 }
 
-void	Convert::displayValues(void) {
+void	Convert::displayInt(int a) {
 	LOG("Converted values are:");
 	if (!isprint(this->getConvertedChar()))
-		LOG("\tchar->Non displayable")
-	else if ()
+		LOG("\tChar-> Non displayable");
+	else if ( a > std::numeric_limits<char>::max() || a < std::numeric_limits<char>::min() )
+		LOG("\tChar-> Impossible");
+	else
+		LOG("\tChar-> " << this->convertedChar);
+	LOG("\tInt-> " << this->convertedInt);
+	LOG("\tFloat-> " << std::fixed << std::setprecision(1) << this->convertedFloat << "f");
+	LOG("\tDouble-> " << this->convertedDouble);
 }
 
-// std::ostream& operator<<(std::ostream& os, Convert const& obj ) {
-// 	if (!isprint(obj.getConvertedChar()))
-// 		os << "Converted values are:\n\tchar-> Non displayable"
-// 		<< "\n\tint-> " << obj.getConvertedInt() << "\n\tfloat-> " << std::fixed << std::setprecision(1) <<
-// 		obj.getConvertedFloat() << "f" << "\n\tdouble-> " << obj.getConvertedDouble();
-// 	else
-// 		os << "Converted values are:\n\tchar-> " << obj.getConvertedChar()
-// 		<< "\n\tint-> " << obj.getConvertedInt() << "\n\tfloat-> " << std::fixed << std::setprecision(1) <<
-// 		obj.getConvertedFloat() << "f" << "\n\tdouble-> " << obj.getConvertedDouble();
-// 	return (os);
-// }
+void	Convert::displayFloat(float a) {
+	LOG("Converted values are:");
+	if (!isprint(this->getConvertedChar()))
+		LOG("\tChar-> Non displayable");
+	else if ( a > std::numeric_limits<char>::max() || a < std::numeric_limits<char>::min() )
+		LOG("\tChar-> Impossible");
+	else
+		LOG("\tChar-> " << this->convertedChar);
+	if ( a > std::numeric_limits<int>::max() || a < std::numeric_limits<int>::min() )
+		LOG("\tInt-> Impossible");
+	else
+		LOG("\tInt-> " << this->convertedInt);
+	LOG("\tFloat-> " << std::fixed << std::setprecision(2) << this->convertedFloat << "f");
+	LOG("\tDouble-> " << this->convertedDouble);
+}
+
+void	Convert::displayDouble(double a) {
+	LOG("Converted values are:");
+	if (!isprint(this->getConvertedChar()))
+		LOG("\tChar-> Non displayable");
+	else if ( a > std::numeric_limits<char>::max() || a < std::numeric_limits<char>::min() )
+		LOG("\tChar-> Impossible");
+	else
+		LOG("\tChar-> " << this->convertedChar);
+	if ( a > std::numeric_limits<int>::max() || a < std::numeric_limits<int>::min() )
+		LOG("\tInt-> Impossible");
+	else
+		LOG("\tInt-> " << this->convertedInt);
+	if ( a > std::numeric_limits<float>::max() || a < std::numeric_limits<float>::min() )
+		LOG("\tFloat-> Impossible");
+	else
+	LOG("\tFloat-> " << std::fixed << std::setprecision(3) << this->convertedFloat << "f");
+	LOG("\tDouble-> " << this->convertedDouble);
+}

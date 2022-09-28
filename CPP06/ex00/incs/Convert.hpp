@@ -2,7 +2,8 @@
 # define CONVERT_HPP
 
 # include <iostream>
-#include <iomanip>
+# include <iomanip>
+# include <limits>
 # include "Colors.hpp"
 
 # define LOG(x) std::cout << x << std::endl
@@ -17,7 +18,6 @@ enum type {
 class Convert {
 
 private:
-	int	type;
 	int		convertedInt;
 	char	convertedChar;
 	float	convertedFloat;
@@ -26,7 +26,6 @@ private:
 
 public:
 	Convert( void ); /* Default constructor */
-	Convert( char* val);
 	Convert( int IntToConvert );
 	Convert( char CharToConvert );
 	Convert( float FloatToConvert );
@@ -39,9 +38,10 @@ public:
 	float	getConvertedFloat() const;
 	double	getConvertedDouble() const;
 
-	int		parseVal(char *str);
-	void	displayValues(void);
-
+	void	displayChar(char a);
+	void	displayInt(int a);
+	void	displayFloat(float a);
+	void	displayDouble(double a);
 
 	Convert	&operator=( Convert const& rhs ); /* Copy assignment operator */
 };
