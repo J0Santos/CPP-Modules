@@ -3,7 +3,7 @@
 ToInt::ToInt( void ) {
 }
 
-ToInt::ToInt(std::string const val): _value(stoi(val)){
+ToInt::ToInt(std::string const val): {
 
 }
 
