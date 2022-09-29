@@ -16,6 +16,13 @@ Data::~Data( void ) {
 
 }
 
+int	Data::getInt( void ) const {
+	return (this->testInt);
+}
+
+std::string	Data::getString( void ) const {
+	return (this->testString);
+}
 
 Data&	Data::operator=( Data const& rhs ) {
 	this->testInt = rhs.testInt;
@@ -24,5 +31,7 @@ Data&	Data::operator=( Data const& rhs ) {
 }
 
 std::ostream& operator<<(std::ostream &os, Data const& data) {
-	
+	os << "int: " << data.getInt() << std::endl;
+	os << "string " << data.getString();
+	return (os);
 }

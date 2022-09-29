@@ -20,6 +20,10 @@ public:
 
 	Data	&operator=( Data const& rhs ); /* Copy assignment operator */
 
+	int			getInt( void ) const;
+	std::string	getString( void ) const;
+
+
 };
 
 std::ostream& operator<<(std::ostream &os, Data const& data);
