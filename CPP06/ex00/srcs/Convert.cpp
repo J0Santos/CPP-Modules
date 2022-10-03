@@ -6,9 +6,9 @@ Convert::Convert( void ) {
 
 Convert::Convert( char charToConvert ) {
 	this->convertedChar = charToConvert;
-	this->convertedInt = charToConvert - '0';
-	this->convertedFloat = static_cast<float>(charToConvert) - '0';
-	this->convertedDouble = static_cast<double>(charToConvert) - '0';
+	this->convertedInt = charToConvert;
+	this->convertedFloat = static_cast<float>(charToConvert);
+	this->convertedDouble = static_cast<double>(charToConvert);
 	displayChar(charToConvert);
 }
 
