@@ -6,14 +6,14 @@ int	main( int argc, char** argv ) {
 	(void)argv;
 
 	{
-		Span test(10000);
+		Span test(100000);
 		std::vector<int> checker;
 
 		LOG(YELLOW << "Empty vector:" << RESET);
 		LOG(BLUE << "size: " << RESET << test.getVector().size());
 		LOG(BLUE << "capacity: " << RESET << test.getVector().capacity());
 		try {
-			for (int i = 0; i < 1543; i++) {
+			for (int i = 1; i < 100000; i++) {
 				if (i < test.getLimit())
 					std::cout << GREEN;
 				else
