@@ -38,7 +38,7 @@
 ################################################################################
 
 # Name of a single binary. Add as many variables as required by the project
-NAME1 := Span
+NAME1 := MutantStack
 
 # The names of all the binaries. Add aditional variables created above separated
 # by space.
