@@ -3,14 +3,18 @@
 
 # include <iostream>
 # include <map>
+# include <fstream>
+# include <iostream>
+# include <string>
+# include <cstdlib>
 
 # define LOG(x) std::cout << x << std::endl
+# define LOG_D(x) std::cout << x << std::endl
 
 class BitcoinExchange {
 
 private:
-	std::map<
-
+	std::map<std::string, float> _rates;
 
 public:
 	BitcoinExchange( void ); /* Default constructor */
@@ -18,6 +22,10 @@ public:
 	~BitcoinExchange( void ); /* Destructor */
 
 	BitcoinExchange	&operator=( BitcoinExchange const& rhs ); /* Copy assignment operator */
+
+	void	buildDB( void );
+	void	handleInput(std::string file);
+	void	printExchange( void );
 
 };
 
