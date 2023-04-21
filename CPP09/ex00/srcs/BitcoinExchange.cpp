@@ -31,9 +31,6 @@ void	BitcoinExchange::buildDB( void ) {
 		_rates[key] = std::atof(value.c_str());
 	}
 	_inFile.close();
-	// for (std::map<std::string, float>::iterator it = _rates.begin(); it != _rates.end(); it++) {
-	// 	LOG(it->first << " " << it->second);
-	// }
 }
 
 void	BitcoinExchange::handleInput( std::string file ) {
@@ -46,6 +43,9 @@ void	BitcoinExchange::handleInput( std::string file ) {
 	int lineNumber = 0;
 	while (std::getline(_inFile, line)) {
 		lineNumber++;
+		if (lineNumber == 1) {
+			continue;
+		}
 		if (line.size() < 14 || line.find('|') == 0
 			|| line.find('|') == line.length() - 1
 			|| line.find('|') == std::string::npos) {
@@ -56,26 +56,22 @@ void	BitcoinExchange::handleInput( std::string file ) {
 		if (!validKey(key, lineNumber)) {
 			continue;
 		}
-		
-
-		std::string value = line.substr(line.find('|') + 1, line.length() - line.find('|'));
+		std::string value = line.substr(line.find('|') + 2, line.length() - line.find('|'));
+		if (!validValue(value, lineNumber)) {
+			continue;
+		}
+		printExchange(key, value);
 		}
 	_inFile.close();
 }
-	// for (std::map<std::string, float>::iterator it = _exchange.begin(); it != _exchange.end(); it++) {
-	// 	LOG(it->first << " " << it->second);
-	// }
 
-
-bool	validKey( std::string key, int lineNumber ) {
-	if (key.size() != 11) {
-			LOG("Error: bad input on line " << lineNumber << "=> " << key);
-		}
-	int year, month, day;
-	year = std::atoi(key.substr(0, 4).c_str());
-	month = std::atoi(key.substr(6, 2).c_str());
-	day = std::atoi(key.substr(10, 2).c_str());
-	
-	
-	return (true);
-	}
+void	BitcoinExchange::printExchange( std::string key, std::string value ) {
+	std::map<std::string, float>::iterator it = _rates.lower_bound(key);
+	float f = std::atof(value.c_str());
+	it--;
+	float rate = it->second;
+	// LOG("it->first: " << it->first << " it->second: " << it->second);
+	// LOG("key: " << key << " value: " << value);
+	float result = f * rate;
+	LOG(key << " => " << value << " = " << result);
+}
