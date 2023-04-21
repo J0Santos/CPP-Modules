@@ -8,8 +8,16 @@
 # include <string>
 # include <cstdlib>
 
+# include "utils.hpp"
+
 # define LOG(x) std::cout << x << std::endl
+
+#ifdef D
 # define LOG_D(x) std::cout << x << std::endl
+#else
+# define LOG_D(x)	
+#endif /* D */
+
 
 class BitcoinExchange {
 
@@ -25,7 +33,7 @@ public:
 
 	void	buildDB( void );
 	void	handleInput(std::string file);
-	void	printExchange( void );
+	void	printExchange( std::string key, std::string value );
 
 };
 
