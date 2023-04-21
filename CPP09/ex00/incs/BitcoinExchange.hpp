@@ -12,7 +12,7 @@
 
 # define LOG(x) std::cout << x << std::endl
 
-#ifdef D
+#if D == 1
 # define LOG_D(x) std::cout << x << std::endl
 #else
 # define LOG_D(x)	

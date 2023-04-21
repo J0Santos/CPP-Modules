@@ -115,7 +115,7 @@ ifeq (${PEDANTIC},true)
 endif
 
 # Generic debug flags
-DFLAGS := -g
+DFLAGS := -g -DD=1
 
 # Address sanitizing flags
 ASAN := -fsanitize=address -fsanitize-recover=address
