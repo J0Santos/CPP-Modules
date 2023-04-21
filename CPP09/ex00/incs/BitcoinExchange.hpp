@@ -18,7 +18,6 @@
 # define LOG_D(x)	
 #endif /* D */
 
-
 class BitcoinExchange {
 
 private:
