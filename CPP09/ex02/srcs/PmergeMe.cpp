@@ -1,6 +1,6 @@
 #include "PmergeMe.hpp"
 
-PmergeMe::PmergeMe( void ) {
+PmergeMe::PmergeMe( void ): _vectorTime(0), _listTime(0) {
 
 }
 
@@ -34,23 +34,71 @@ void	PmergeMe::fillSTLs( std::string const& str ) {
 	this->_list.push_back(std::atoi(str.c_str()));
 }
 
-void	PmergeMe::sortVector( void ) {
+void	PmergeMe::sort( void ) {
 	clock_t	start = clock();
-	
-	//sorting algorithm
+	this->sortVector(0, this->_vector.size() - 1);
+	clock_t	end = clock();
+	this->_vectorTime = static_cast<double>(end - start) / CLOCKS_PER_SEC;
+	// start = clock();
+	// this->sortList(0, this->_list.size() - 1);
+	// end = clock();
+	// this->_listTime = static_cast<double>(end - start) / CLOCKS_PER_SEC;
+}
 
+void	PmergeMe::sortVector( int left, int right ) {
+	clock_t	start = clock();
+	if (left >= right)
+		return ;
+	if ((right - left + 1) <= 10) {
+		this->vectorInsertSort(left, right);
+		return ;
+	}
+	// merge sort
+	int mid = (left + right) / 2;
+	LOG("MID: " << mid);
+	sortVector(left, mid);
+	sortVector(mid + 1, right);
+	std::vector<int> temp(right - left + 1);
+	int i = left;
+	int j = mid + 1;
+	int k = 0;
+	while (i <= mid && j <= right) {
+		if (this->_vector[i] <= this->_vector[j])
+			temp[k++] = this->_vector[i++];
+		else
+			temp[k++] = this->_vector[j++];
+	}
+	while (i <= mid)
+		temp[k++] = this->_vector[i++];
+	while (j <= right)
+		temp[k++] = this->_vector[j++];
+	for (int i = 0; i < k; ++i)
+		this->_vector[left + i] = temp[i];
 	clock_t	end = clock();
 	this->_vectorTime = static_cast<double>(end - start) / CLOCKS_PER_SEC;
 }
 
-void	PmergeMe::sortList( void ) {
-	clock_t	start = clock();
-
-	//sorting algorithm
-
-	clock_t	end = clock();
-	this->_listTime = static_cast<double>(end - start) / CLOCKS_PER_SEC;
+void	PmergeMe::vectorInsertSort(int left, int right) {
+	for (int i = left + 1; i <= right; ++i) {
+		int temp = this->_vector[i];
+		int j = i - 1;
+		while (j >= left && this->_vector[j] > temp) {
+			this->_vector[j + 1] = this->_vector[j];
+			j--;
+		}
+		this->_vector[j + 1] = temp;
+	}
+	return ;
 }
+
+// void	PmergeMe::sortList( int left, int right ) {
+// 	clock_t	start = clock();
+
+// 	//sorting algorithm
+
+// 	clock_t	end = clock();
+// 	this->_listTime = static_cast<double>(end - start) / CLOCKS_PER_SEC;
+// }
 
 double	PmergeMe::getVectorTime( void ) const {
 	return (this->_vectorTime);
@@ -59,3 +107,11 @@ double	PmergeMe::getVectorTime( void ) const {
 double	PmergeMe::getListTime( void ) const {
 	return (this->_listTime);
 }
+
+// std::vector<int> const&	PmergeMe::getVector( void ) const {
+// 	return (this->_vector);
+// }
+
+// std::list<int> const&	PmergeMe::getList( void ) const {
+// 	return (this->_list);
+// }

@@ -18,6 +18,7 @@ private:
 	double				_vectorTime;
 	double				_listTime;
 
+	
 public:
 	PmergeMe( void ); /* Default constructor */
 	PmergeMe( PmergeMe const& src ); /* Copy constructor */
@@ -27,12 +28,18 @@ public:
 
 	void	printSTLs( void );
 	void	fillSTLs( std::string const& str );
-	void	sortVector( void );
-	void	sortList( void );
+	void	sort( void );
+	//Vector sorting
+	void	sortVector( int left, int right );
+	void	vectorInsertSort( int left, int right );
+	//List sorting
+	void	sortList( int left, int right );
+	void	listInsertSort( int left, int right );
 
 	double	getVectorTime( void ) const;
 	double	getListTime( void ) const;
-
+	std::vector<int> const&	getVector( void ) const;
+	std::list<int> const&	getList( void ) const;
 };
 
 #endif /* PMERGE_ME_HPP */
