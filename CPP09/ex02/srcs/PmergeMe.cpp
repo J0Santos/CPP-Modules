@@ -39,14 +39,13 @@ void	PmergeMe::sort( void ) {
 	this->sortVector(0, this->_vector.size() - 1);
 	clock_t	end = clock();
 	this->_vectorTime = static_cast<double>(end - start) / CLOCKS_PER_SEC;
-	// start = clock();
-	// this->sortList(0, this->_list.size() - 1);
-	// end = clock();
-	// this->_listTime = static_cast<double>(end - start) / CLOCKS_PER_SEC;
+	start = clock();
+	this->sortList(this->_list.begin(), this->_list.end());
+	end = clock();
+	this->_listTime = static_cast<double>(end - start) / CLOCKS_PER_SEC;
 }
 
 void	PmergeMe::sortVector( int left, int right ) {
-	clock_t	start = clock();
 	if (left >= right)
 		return ;
 	if ((right - left + 1) <= 10) {
@@ -74,8 +73,6 @@ void	PmergeMe::sortVector( int left, int right ) {
 		temp[k++] = this->_vector[j++];
 	for (int i = 0; i < k; ++i)
 		this->_vector[left + i] = temp[i];
-	clock_t	end = clock();
-	this->_vectorTime = static_cast<double>(end - start) / CLOCKS_PER_SEC;
 }
 
 void	PmergeMe::vectorInsertSort(int left, int right) {
@@ -91,14 +88,31 @@ void	PmergeMe::vectorInsertSort(int left, int right) {
 	return ;
 }
 
-// void	PmergeMe::sortList( int left, int right ) {
-// 	clock_t	start = clock();
+void	PmergeMe::sortList( std::list<int>::iterator left, std::list<int>::iterator right) {
+	if (std::distance(left, right) <= 0)
+		return ;
+	if (std::distance(left, right) <= 10) {
+		this->listInsertSort(left, right);
+		return ;
+	}
+}
 
-// 	//sorting algorithm
+void	PmergeMe::listInsertSort(std::list<int>::iterator left, std::list<int>::iterator right) {
+	std::list<int>::iterator temp, j;
+	int key;
 
-// 	clock_t	end = clock();
-// 	this->_listTime = static_cast<double>(end - start) / CLOCKS_PER_SEC;
-// }
+	for (std::list<int>::iterator i = left; i != right; ++i) {
+		key = *i;
+		LOG("KEY: " << key);
+		j = i;
+		while(j != left && *--j > key) {
+			temp = j;
+			*++temp = *j;
+		}
+		temp = j;
+		*++temp = key;
+		}
+}
 
 double	PmergeMe::getVectorTime( void ) const {
 	return (this->_vectorTime);
