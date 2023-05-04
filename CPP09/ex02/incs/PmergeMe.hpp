@@ -33,8 +33,8 @@ public:
 	void	sortVector( int left, int right );
 	void	vectorInsertSort( int left, int right );
 	//List sorting
-	void	sortList( std::list<int>::iterator left, std::list<int>::iterator right );
-	void	listInsertSort( std::list<int>::iterator left, std::list<int>::iterator right );
+	void	sortList( std::list<int>::iterator begin, std::list<int>::iterator end );
+	void	listInsertSort( std::list<int>::iterator begin, std::list<int>::iterator end );
 
 	double	getVectorTime( void ) const;
 	double	getListTime( void ) const;

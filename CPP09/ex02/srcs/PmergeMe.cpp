@@ -54,7 +54,6 @@ void	PmergeMe::sortVector( int left, int right ) {
 	}
 	// merge sort
 	int mid = (left + right) / 2;
-	LOG("MID: " << mid);
 	sortVector(left, mid);
 	sortVector(mid + 1, right);
 	std::vector<int> temp(right - left + 1);
@@ -88,30 +87,64 @@ void	PmergeMe::vectorInsertSort(int left, int right) {
 	return ;
 }
 
-void	PmergeMe::sortList( std::list<int>::iterator left, std::list<int>::iterator right) {
-	if (std::distance(left, right) <= 0)
+void	PmergeMe::sortList( std::list<int>::iterator begin, std::list<int>::iterator end) {
+	if (std::distance(begin, end) <= 0)
 		return ;
-	if (std::distance(left, right) <= 10) {
-		this->listInsertSort(left, right);
+	if (std::distance(begin, end) <= 10) {
+		this->listInsertSort(begin, end);
 		return ;
 	}
+	//merge sort
+	std::list<int>::iterator mid = begin;
+	std::advance(mid, std::distance(begin, end) / 2);
+	sortList(begin, mid);
+	sortList(mid, end);
+	std::list<int> temp;
+	std::list<int>::iterator i = begin;
+	std::list<int>::iterator j = mid;
+	while (i != mid && j != end) {
+		if (*i <= *j) {
+			temp.push_back(*i);
+			i++;
+		}
+		else {
+			temp.push_back(*j);
+			j++;
+		}
+	}
+	while (i != mid) {
+		temp.push_back(*i);
+		i++;
+	}
+	while (j != end) {
+		temp.push_back(*j);
+		j++;
+	}
+	i = begin;
+	j = temp.begin();
+	while (i != end) {
+		*i = *j;
+		i++;
+		j++;
+	}
+	return ;
 }
 
-void	PmergeMe::listInsertSort(std::list<int>::iterator left, std::list<int>::iterator right) {
-	std::list<int>::iterator temp, j;
-	int key;
-
-	for (std::list<int>::iterator i = left; i != right; ++i) {
-		key = *i;
-		LOG("KEY: " << key);
-		j = i;
-		while(j != left && *--j > key) {
+void	PmergeMe::listInsertSort(std::list<int>::iterator begin, std::list<int>::iterator end) {
+	std::list<int>::iterator temp, temp2;
+	
+	temp2 = begin;
+	for (std::list<int>::iterator i = ++temp2; i != end; i++) {
+		int key = *i;
+		std::list<int>::iterator j = i;
+		while (j != begin && *(--j) > key) {
 			temp = j;
-			*++temp = *j;
+			temp++;
+			*temp = *j;
+			temp = j;
+			*temp = key;
 		}
-		temp = j;
-		*++temp = key;
-		}
+	}
 }
 
 double	PmergeMe::getVectorTime( void ) const {
