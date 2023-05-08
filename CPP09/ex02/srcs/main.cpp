@@ -16,7 +16,7 @@ int	main(int argc, char **argv) {
 	pm.printSTLs();
 	pm.sort();
 	LOG("After merge:");
-	// pm.printSTLs();
+	pm.printSTLs();
 	LOG("Time to merge " << i << " elements with vector:");
 	LOG(std::setprecision(6) << std::fixed << pm.getVectorTime());
 	LOG("Time to merge " << i << " elements with list:");

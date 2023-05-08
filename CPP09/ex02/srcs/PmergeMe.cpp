@@ -13,8 +13,10 @@ PmergeMe::~PmergeMe( void ) {
 }
 
 PmergeMe&	PmergeMe::operator=( PmergeMe const& rhs ) {
-		this->_vector = rhs._vector;
-		this->_list = rhs._list;
+	this->_vector = rhs._vector;
+	this->_list = rhs._list;
+	this->_vectorTime = rhs._vectorTime;
+	this->_listTime = rhs._listTime;
 	return (*this);
 }
 
@@ -154,11 +156,3 @@ double	PmergeMe::getVectorTime( void ) const {
 double	PmergeMe::getListTime( void ) const {
 	return (this->_listTime);
 }
-
-// std::vector<int> const&	PmergeMe::getVector( void ) const {
-// 	return (this->_vector);
-// }
-
-// std::list<int> const&	PmergeMe::getList( void ) const {
-// 	return (this->_list);
-// }
