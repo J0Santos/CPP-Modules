@@ -8,8 +8,8 @@ bool	validKey( std::string key, int lineNumber ) {
 	int year, month, day;
 	year = std::atoi(key.substr(0, 4).c_str());
 	month = std::atoi(key.substr(5, 2).c_str());
-	day = std::atoi(key.substr(9, 2).c_str());
-	if (year < 2009 || year > 2019 || month < 1 || month > 12 || day < 1 || day > 31) {
+	day = std::atoi(key.substr(8, 2).c_str());
+	if (year < 2009 || year > 2022 || month < 1 || month > 12 || day < 1 || day > 31) {
 		LOG("Error: bad input on line " << lineNumber << " => " << key);
 		return (false);
 	}	

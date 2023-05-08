@@ -70,8 +70,7 @@ void	BitcoinExchange::printExchange( std::string key, std::string value ) {
 	float f = std::atof(value.c_str());
 	it--;
 	float rate = it->second;
-	// LOG("it->first: " << it->first << " it->second: " << it->second);
-	// LOG("key: " << key << " value: " << value);
+	// LOG("f: " << f << " rate: " << rate);
 	float result = f * rate;
-	LOG(key << " => " << value << " = " << result);
+	LOG(std::setprecision(2) << std::fixed << key << " => " << value << " = " << result);
 }

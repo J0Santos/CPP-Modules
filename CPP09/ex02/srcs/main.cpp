@@ -3,20 +3,20 @@
 
 int	main(int argc, char **argv) {
 	PmergeMe	pm;
-	int	i = argc - 1;
 
 	if (argc < 2) {
 		std::cout << "Usage: ./PmergeMe [number] [number] ..." << std::endl;
 		return (1);
 	}
-	while (argc-- > 1) {
-		pm.fillSTLs(std::string(argv[argc]));
+	for (int i = 1; i < argc; ++i) {
+		pm.fillSTLs(std::string(argv[i]));
 	}
 	LOG("Before merge:");
 	pm.printSTLs();
 	pm.sort();
 	LOG("After merge:");
 	pm.printSTLs();
+	int i = argc - 1;
 	LOG("Time to merge " << i << " elements with vector:");
 	LOG(std::setprecision(6) << std::fixed << pm.getVectorTime());
 	LOG("Time to merge " << i << " elements with list:");
